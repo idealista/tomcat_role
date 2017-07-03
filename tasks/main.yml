@@ -1,0 +1,16 @@
+---
+
+- name: Tomcat | Install
+  include: install.yml
+  tags:
+    - install
+
+- name: Tomcat | Service
+  include: service.yml
+  tags:
+    - service
+
+- name: Tomcat | Config
+  include: config.yml
+  tags:
+    - config

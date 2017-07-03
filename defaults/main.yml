@@ -1,0 +1,51 @@
+---
+## General
+
+tomcat_version: 8.0.44
+
+## Service options
+
+# Owner
+tomcat_user: tomcat
+tomcat_group: tomcat
+
+# start on boot
+tomcat_service_enabled: yes
+# current state: started, stopped
+tomcat_service_state: started
+
+# Files & Paths
+tomcat_install_path: "/opt/tomcat"
+tomcat_bin_path: "{{ tomcat_install_path }}/bin"
+tomcat_conf_path: "{{ tomcat_install_path }}/conf"
+
+# Allowing playbooks to provide external config files&templates
+tomcat_extra_conf_path: "{{ playbook_dir }}/files/tomcat/conf"
+tomcat_extra_conf_template_path: "{{ playbook_dir }}/templates/tomcat/conf"
+
+## Miscellaneous
+tomcat_force_reinstall: false
+
+## Ports
+tomcat_shutdown_port: 8005
+
+tomcat_http_connector_port: 8080
+tomcat_http_connector_connection_timeout: 20000
+
+tomcat_ajp_connector_port: 8009
+tomcat_connector_redirect_port: 8443
+
+## CATALINA_OPTS
+catalina_opts:
+  - -Xms512m
+  - -Xmx512m
+
+## Tomcat roles
+tomcat_roles:
+  - manager-gui
+
+## Tomcat users
+tomcat_users:
+  - name: admin
+    password: must-be-changed
+    roles: manager-gui

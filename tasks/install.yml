@@ -1,0 +1,43 @@
+---
+
+- name: Tomcat | Ensure tomcat group
+  group:
+    name: "{{ tomcat_group }}"
+
+- name: Tomcat | Ensure tomcat user
+  user:
+    name: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+    shell: /bin/bash
+
+- name: Tomcat | Create install path
+  file:
+    path: "{{ tomcat_install_path }}"
+    state: directory
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+
+- name: Tomcat | Check Tomcat version
+  command: "java -cp {{ tomcat_install_path }}/lib/catalina.jar org.apache.catalina.util.ServerInfo | grep 'Server version' | sed 's/Server version: //g'"
+  register: tomcat_check
+  changed_when: false
+  ignore_errors: true
+
+# File permissions based on official documentation: https://tomcat.apache.org/tomcat-8.0-doc/security-howto.html
+- name: Tomcat | Download & Extract Tomcat
+  unarchive:
+    extra_opts: ['--strip-components=1']
+    src: "{{ tomcat_url }}"
+    remote_src: yes
+    dest: "{{ tomcat_install_path }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+    mode: 0750
+  when: 'tomcat_force_reinstall or tomcat_check|failed or tomcat_check.stdout == "Apache Tomcat/{{ tomcat_version }}"'
+
+- name: Tomcat | Copy Daemon script
+  template:
+    src: tomcat.service.j2
+    dest: /lib/systemd/system/tomcat.service
+    mode: 0644
+  notify: restart tomcat

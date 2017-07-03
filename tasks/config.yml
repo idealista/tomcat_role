@@ -1,0 +1,34 @@
+---
+
+- name: Tomcat | Copy tomcat config
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: 0640
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+  with_items:
+    - { src: "tomcat-users.xml.j2", dest: "{{ tomcat_conf_path }}/tomcat-users.xml" }
+    - { src: "server.xml.j2", dest: "{{ tomcat_conf_path }}/server.xml" }
+    - { src: "setenv.sh.j2", dest: "{{ tomcat_bin_path }}/setenv.sh" }
+  notify: restart tomcat
+
+- name: Tomcat | Copy extra tomcat config files (provided by playbooks)
+  copy:
+    src: "{{ item }}"
+    dest: "{{ tomcat_conf_path }}/{{ item | basename }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+    mode: 0640
+  with_fileglob:
+    - "{{ tomcat_extra_conf_path }}/*"
+
+- name: Tomcat | Copy extra tomcat config templates (provided by playbooks)
+  template:
+    src: "{{ item }}.j2"
+    dest: "{{ tomcat_conf_path }}/{{ item | basename }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+    mode: 0640
+  with_fileglob:
+    - "{{ tomcat_extra_conf_template_path }}/*"

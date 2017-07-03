@@ -1,0 +1,7 @@
+---
+# handlers file for tomcat-role
+
+- name: restart tomcat
+  systemd:
+    name: tomcat
+    state: restarted

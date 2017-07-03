@@ -1,0 +1,5 @@
+---
+
+tomcat_build_name: "apache-tomcat-{{ tomcat_version }}"
+tomcat_url: "https://archive.apache.org/dist/tomcat/tomcat-{{ tomcat_version[0:1] }}/v{{ tomcat_version }}/bin/{{ tomcat_package }}"
+tomcat_package: "{{ tomcat_build_name }}.tar.gz"

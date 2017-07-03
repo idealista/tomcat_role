@@ -1,0 +1,5 @@
+#! /bin/sh
+
+{% for item in catalina_opts %}
+export CATALINA_OPTS="$CATALINA_OPTS {{ item }}"
+{% endfor %}

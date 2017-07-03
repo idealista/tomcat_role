@@ -1,0 +1,8 @@
+---
+
+- name: Tomcat | Configuring service
+  systemd:
+    name: tomcat
+    state: "{{ tomcat_service_state }}"
+    enabled: "{{ tomcat_service_enabled }}"
+    daemon_reload: yes

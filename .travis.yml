@@ -10,7 +10,7 @@ install:
   - pip install molecule==1.25.0
   - pip install docker
 script:
-  - molecule test
+  - molecule test --driver docker
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

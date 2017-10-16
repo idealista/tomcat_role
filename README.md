@@ -1,5 +1,5 @@
 ![Logo](https://raw.githubusercontent.com/idealista/tomcat-role/master/logo.gif)
-
+[![Build Status](https://travis-ci.org/idealista/tomcat-role.svg?branch=master)](https://travis-ci.org/idealista/tomcat-role)
 # Tomcat Ansible role
 
 This ansible role installs a Tomcat server in a debian environment.

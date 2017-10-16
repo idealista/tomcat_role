@@ -7,7 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 ## [1.0.1](https://github.com/idealista/tomcat-role/tree/1.0.1)
 
 ### Added
-- *[#1](https://github.com/idealista/redis-role/issues/1) Add deploy task* @jdvr
+- *[#1](https://github.com/idealista/tomcat-role/issues/1) Add deploy task* @jdvr
 
 
 ## [1.0.0](https://github.com/idealista/tomcat-role/tree/1.0.0)

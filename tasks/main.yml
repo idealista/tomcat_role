@@ -14,3 +14,8 @@
   include: config.yml
   tags:
     - config
+
+- name: Tomcat | Deploy
+  include: deploy.yml
+  tags:
+    - deploy

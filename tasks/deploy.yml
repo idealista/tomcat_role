@@ -1,0 +1,19 @@
+---
+
+- name: Tomcat | Download wars on webapps
+  get_url:
+    url: "{{ item }}"
+    dest: "{{ tomcat_webapps_path }}"
+    mode: 0755
+    validate_certs: no
+  with_items: "{{ tomcat_war_to_deploy_urls }}"
+  when: tomcat_download_wars
+
+
+- name: Tomcat | Copy local wars to webapps
+  copy:
+    src: "{{ item }}"
+    dest: "{{ tomcat_webapps_path }}"
+    mode: 0755
+  with_items: "{{ tomcat_war_to_deploy_path }}"
+  when: tomcat_local_wars

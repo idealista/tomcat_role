@@ -55,3 +55,26 @@ vagrant:
         - network_name: private_network
           type: dhcp
           auto_config: true
+
+docker:
+    containers:
+      - name: tomcat.vm
+        ansible_groups:
+          - tomcat
+
+        dockerfile: tests/Dockerfile
+        image: debian9-testinfra
+        image_version: latest
+
+        privileged: True
+        cap_add:
+          - SYS_ADMIN
+        volume_mounts:
+          - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+        command: '/lib/systemd/systemd'
+
+verifier:
+  name: testinfra
+  options:
+    connection: ansible
+    ansible-inventory: .molecule/ansible_inventory

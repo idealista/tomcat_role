@@ -1,7 +1,7 @@
 ---
 ## General
 
-tomcat_version: 8.0.44
+tomcat_version: 8.5.23
 
 ## Service options
 
@@ -18,6 +18,7 @@ tomcat_service_state: started
 tomcat_install_path: "/opt/tomcat"
 tomcat_bin_path: "{{ tomcat_install_path }}/bin"
 tomcat_conf_path: "{{ tomcat_install_path }}/conf"
+tomcat_webapps_path: "{{ tomcat_install_path }}/webapps"
 
 # Allowing playbooks to provide external config files&templates
 tomcat_extra_conf_path: "{{ playbook_dir }}/files/tomcat/conf"
@@ -49,3 +50,11 @@ tomcat_users:
   - name: admin
     password: must-be-changed
     roles: manager-gui
+
+## Deploy
+tomcat_download_wars: true
+tomcat_war_to_deploy_urls:
+  - https://tomcat.apache.org/tomcat-8.5-doc/appdev/sample/sample.war
+tomcat_local_wars: false
+tomcat_war_to_deploy_path:
+  - "{{ playbook_dir }}/sample.war"

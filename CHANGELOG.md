@@ -3,8 +3,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/tomcat-role/tree/develop)
+
+## [1.1.2](https://github.com/idealista/tomcat-role/tree/1.1.2)
+
 ### Fixed
-- *[#1](https://github.com/idealista/tomcat-role/issues/8) Fix systemd startup* @jmonterrubio
+- *[#8](https://github.com/idealista/tomcat-role/issues/8) Fix systemd startup* @jmonterrubio
+- *[#6](https://github.com/idealista/tomcat-role/issues/6) Fix conf directory template copy* @jmonterrubio
 
 ## [1.1.0](https://github.com/idealista/tomcat-role/tree/1.1.0)
 

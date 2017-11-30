@@ -1,11 +1,17 @@
 [Unit]
 Description=Apache Tomcat Web Application Container
 After=network.target
+
 [Service]
 Type=forking
+
+WorkingDirectory={{ tomcat_install_path }}
+
 ExecStart={{ tomcat_bin_path }}/startup.sh
 ExecStop={{ tomcat_bin_path }}/shutdown.sh
+
 User={{ tomcat_user }}
 Group={{ tomcat_group }}
+
 [Install]
 WantedBy=multi-user.target

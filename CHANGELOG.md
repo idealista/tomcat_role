@@ -8,7 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ### Fixed
 - *[#8](https://github.com/idealista/tomcat-role/issues/8) Fix systemd startup* @jmonterrubio
-- *[#6](https://github.com/idealista/tomcat-role/issues/6) Fix conf directory template copy* @jmonterrubio
+- *[#6](https://github.com/idealista/tomcat-role/issues/6) Fix conf directory template copy* @jnogol
 
 ## [1.1.0](https://github.com/idealista/tomcat-role/tree/1.1.0)
 

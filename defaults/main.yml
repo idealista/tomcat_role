@@ -54,7 +54,8 @@ tomcat_users:
 ## Deploy
 tomcat_download_wars: true
 tomcat_war_to_deploy_urls:
-  - https://tomcat.apache.org/tomcat-8.5-doc/appdev/sample/sample.war
+  - url: https://tomcat.apache.org/tomcat-8.5-doc/appdev/sample/sample.war
+    name: sample.war
 tomcat_local_wars: false
 tomcat_war_to_deploy_path:
   - "{{ playbook_dir }}/sample.war"

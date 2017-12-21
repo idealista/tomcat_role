@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/tomcat-role/tree/develop)
 
+## [1.2.0](https://github.com/idealista/tomcat-role/tree/1.2.0)
+
+### Added
+- *[#5](https://github.com/idealista/tomcat-role/issues/5) Add a name for the downloaded war during deployment* @jdvr
+
 ## [1.1.2](https://github.com/idealista/tomcat-role/tree/1.1.2)
 
 ### Fixed

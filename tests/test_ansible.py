@@ -23,5 +23,5 @@ def test_tomcat_service(File, Service, Socket, AnsibleDefaults):
     assert File("/lib/systemd/system/tomcat.service").exists
     assert Service("tomcat").is_enabled
     assert Service("tomcat").is_running
-    assert Socket("tcp://0.0.0.0:" + str(ajp_port)).is_listening
-    assert Socket("tcp://0.0.0.0:" + str(http_port)).is_listening
+    assert Socket("tcp://0.0.0.0:" + str(ajp_port)).is_listening or Socket("tcp://:::" + str(ajp_port)).is_listening
+    assert Socket("tcp://0.0.0.0:" + str(http_port)).is_listening or Socket("tcp://:::" + str(http_port)).is_listening

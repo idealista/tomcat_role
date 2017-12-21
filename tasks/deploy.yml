@@ -2,8 +2,8 @@
 
 - name: Tomcat | Download wars on webapps
   get_url:
-    url: "{{ item }}"
-    dest: "{{ tomcat_webapps_path }}"
+    url: "{{ item.url }}"
+    dest: "{{ tomcat_webapps_path }}/{{ item.name }}"
     mode: 0755
     validate_certs: no
   with_items: "{{ tomcat_war_to_deploy_urls }}"

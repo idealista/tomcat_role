@@ -9,5 +9,5 @@
       with_items:
         - net-tools
   roles:
-    - role: java
-    - role: tomcat-role
+    - java
+    - tomcat-role

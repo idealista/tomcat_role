@@ -1,5 +1,28 @@
 ---
 
+- name: Tomcat | Install download war from maven require package
+  apt:
+    package: "{{ item }}"
+    state: present
+  with_items:
+    - python-lxml
+  notify: restart tomcat
+  when: tomcat_download_from_maven_wars
+
+- name: Tomcat | Download wars from maven
+  maven_artifact:
+    group_id: "{{ item.group_id }}"
+    artifact_id: "{{ item.artifact_id }}"
+    extension: "{{ item.extension }}"
+    state: present
+    version: "{{ item.version | default('latest') }}"
+    repository_url: "{{ item.repository_url }}"
+    dest: "{{ tomcat_webapps_path }}/{{ item.name }}"
+    validate_certs: no
+  with_items: "{{ tomcat_war_to_deploy_from_maven }}"
+  notify: restart tomcat
+  when: tomcat_download_from_maven_wars
+
 - name: Tomcat | Download wars on webapps
   get_url:
     url: "{{ item.url }}"

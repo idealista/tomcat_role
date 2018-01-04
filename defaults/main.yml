@@ -52,6 +52,14 @@ tomcat_users:
     roles: manager-gui
 
 ## Deploy
+tomcat_download_from_maven_wars: false
+tomcat_war_to_deploy_from_maven:
+  - name: ROOT.war
+    group_id: "sample"
+    artifact_id: "any"
+    extension: "war"
+    repository_url: "http://amavenrepository/any"
+
 tomcat_download_wars: true
 tomcat_war_to_deploy_urls:
   - url: https://tomcat.apache.org/tomcat-8.5-doc/appdev/sample/sample.war

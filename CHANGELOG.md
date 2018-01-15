@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/tomcat-role/tree/develop)
 
+### Added
+- *[#21](https://github.com/idealista/tomcat-role/issues/21) Remove folders from webapps* @dortegau
+
 ## [1.3.1](https://github.com/idealista/tomcat-role/tree/1.3.1)
 
 ### Fixed

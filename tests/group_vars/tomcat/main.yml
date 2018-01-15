@@ -1,15 +1,2 @@
 ## JAVA
 java_implementation: openjdk
-
-tomcat_download_wars: false
-tomcat_local_wars: false
-tomcat_download_from_maven_wars: true
-
-tomcat_war_to_deploy_from_maven:
-  - name: ROOT.war
-    group_id: idealista.com
-    artifact_id: idealista.com
-    extension: war
-    classifier: development_es
-    version: 5.92.0
-    repository_url: http://10.80.2.41:8081/nexus/content/repositories/idealista-releases

@@ -43,7 +43,6 @@
   with_items: "{{ tomcat_war_to_deploy_urls }}"
   when: tomcat_download_wars
 
-
 - name: Tomcat | Copy local wars to webapps
   copy:
     src: "{{ item }}"

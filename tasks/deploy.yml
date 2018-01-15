@@ -24,12 +24,22 @@
   notify: restart tomcat
   when: tomcat_download_from_maven_wars
 
+- name: Tomcat | Change maven downloaded war owner
+  file:
+    path: "{{ tomcat_webapps_path }}/{{ item.name }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+  with_items: "{{ tomcat_war_to_deploy_from_maven }}"
+  when: tomcat_download_from_maven_wars
+
 - name: Tomcat | Download wars on webapps
   get_url:
     url: "{{ item.url }}"
     dest: "{{ tomcat_webapps_path }}/{{ item.name }}"
     mode: 0755
     validate_certs: no
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
   with_items: "{{ tomcat_war_to_deploy_urls }}"
   when: tomcat_download_wars
 
@@ -39,5 +49,7 @@
     src: "{{ item }}"
     dest: "{{ tomcat_webapps_path }}"
     mode: 0755
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
   with_items: "{{ tomcat_war_to_deploy_path }}"
   when: tomcat_local_wars

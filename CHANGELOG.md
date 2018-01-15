@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/tomcat-role/tree/develop)
 
+## [1.3.1](https://github.com/idealista/tomcat-role/tree/1.3.1)
+
+### Added
+- *[#17](https://github.com/idealista/tomcat-role/issues/17) Fix war user and group after download* @jdvr
+
 ## [1.3.0](https://github.com/idealista/tomcat-role/tree/1.3.0)
 
 ### Added

@@ -32,6 +32,10 @@ file:
   {{ tomcat_webapps_path }}/{{ key }}:
     exists: {{ value.deployed }}
 {% endfor %}
+  {{ tomcat_conf_path }}/test_file.xml:
+    exists: true
+  {{ tomcat_conf_path }}/test_template.xml:
+    exists: true
 
 command:
   java -cp {{ tomcat_install_path }}/lib/catalina.jar org.apache.catalina.util.ServerInfo | grep 'Server version':

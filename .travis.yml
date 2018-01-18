@@ -4,7 +4,6 @@ python: "2.7.13"
 sudo: required
 
 env:
-  - ansible_version: 2.2.1.0
   - ansible_version: 2.3.1.0
   - ansible_version: 2.4.0.0
   - ansible_version: 2.4.1.0
@@ -15,7 +14,7 @@ services:
 
 install:
   - pip install ansible==${ansible_version}
-  - pip install -r requirements.txt
+  - pip install -r test-requirements.txt
 script:
   - molecule test
 

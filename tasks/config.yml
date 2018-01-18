@@ -27,7 +27,7 @@
 - name: Tomcat | Copy extra tomcat config templates (provided by playbooks)
   template:
     src: "{{ item.src }}"
-    dest: "{{ tomcat_conf_path }}/{{ item.path | basename | splitext | first }}" # This is to remove .j2 extension
+    dest: "{{ tomcat_conf_path }}/{{ item.path | basename | splitext | first }}"  # This is to remove .j2 extension
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
     mode: 0640

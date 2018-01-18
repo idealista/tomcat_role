@@ -36,6 +36,12 @@ file:
     exists: true
   {{ tomcat_conf_path }}/test_template.xml:
     exists: true
+{% if tomcat_download_wars %}
+{% for war in tomcat_war_to_deploy_urls %}
+  {{ tomcat_webapps_path }}/{{ war.name }}:
+    exists: true
+{% endfor %}
+{% endif %}
 
 command:
   java -cp {{ tomcat_install_path }}/lib/catalina.jar org.apache.catalina.util.ServerInfo | grep 'Server version':

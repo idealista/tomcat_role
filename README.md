@@ -64,15 +64,27 @@ Look to the defaults properties file to see the possible configuration propertie
 
 ## Testing
 
-```
-molecule test --platform=Debian9
+### Install dependencies
+
+```sh
+pipenv install
 ```
 
-See molecule.yml to check possible testing platforms.
+For more information read the [pipenv docs](https://docs.pipenv.org/).
+
+### Running test
+
+```
+molecule test
+```
+
+See molecule/molecule.yml to check possible testing platforms.
 
 ## Built With
 
 ![Ansible](https://img.shields.io/badge/ansible-2.4.2.0-green.svg)
+![Molecule](https://img.shields.io/badge/molecule-2.7.0-green.svg)
+![Goss](https://img.shields.io/badge/goss-0.3.5-green.svg)
 
 ## Versioning
 

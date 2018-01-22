@@ -1,6 +1,6 @@
 ---
-
-- hosts: tomcat.vm
+- name: Converge
+  hosts: all
   pre_tasks:
     - name: Tomcat | Installing required dependencies
       apt:

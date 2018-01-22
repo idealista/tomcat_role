@@ -19,7 +19,7 @@
      define subcomponents such as "Valves" at this level.
      Documentation at /docs/config/server.html
  -->
-<Server port="{{ tomcat_shutdown_port }}" shutdown="SHUTDOWN">
+<Server port="{{ tomcat_shutdown_port }}" shutdown="{{ tomcat_shutdown_command }}">
   <Listener className="org.apache.catalina.startup.VersionLoggerListener" />
   <!-- Security listener. Documentation at /docs/config/listeners.html
   <Listener className="org.apache.catalina.security.SecurityListener" />

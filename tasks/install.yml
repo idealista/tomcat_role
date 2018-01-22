@@ -41,3 +41,10 @@
     dest: /lib/systemd/system/tomcat.service
     mode: 0644
   notify: restart tomcat
+
+- name: Tomcat | Delete pre-installed folders in webapps
+  file:
+    path: "{{ tomcat_webapps_path }}/{{ item.key }}/"
+    state: absent
+  with_dict: "{{ tomcat_pre_installed_folders_deployed }}"
+  when: 'not item.value.deployed'

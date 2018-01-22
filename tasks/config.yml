@@ -15,20 +15,22 @@
 
 - name: Tomcat | Copy extra tomcat config files (provided by playbooks)
   copy:
-    src: "{{ item }}"
-    dest: "{{ tomcat_conf_path }}/{{ item | basename }}"
+    src: "{{ item.src }}"
+    dest: "{{ tomcat_conf_path }}/{{ item.path | basename }}"
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
     mode: 0640
-  with_fileglob:
-    - "{{ tomcat_extra_conf_path }}/*"
+  with_filetree:
+    - "{{ tomcat_extra_conf_path }}/"
+  when: item.state == "file"
 
 - name: Tomcat | Copy extra tomcat config templates (provided by playbooks)
   template:
-    src: "{{ item }}"
-    dest: "{{ tomcat_conf_path }}/{{ item | basename | splitext | first }}" # This is to remove .j2 extension
+    src: "{{ item.src }}"
+    dest: "{{ tomcat_conf_path }}/{{ item.path | basename | splitext | first }}"  # This is to remove .j2 extension
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
     mode: 0640
-  with_fileglob:
-    - "{{ tomcat_extra_conf_template_path }}/*"
+  with_filetree:
+    - "{{ tomcat_extra_conf_template_path }}/"
+  when: item.state == "file"

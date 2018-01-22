@@ -1,7 +1,7 @@
 ---
 ## General
 
-tomcat_version: 8.5.23
+tomcat_version: 8.5.24
 
 ## Service options
 
@@ -29,6 +29,7 @@ tomcat_force_reinstall: false
 
 ## Ports
 tomcat_shutdown_port: 8005
+tomcat_shutdown_command: SHUTDOWN
 
 tomcat_http_connector_port: 8080
 tomcat_http_connector_connection_timeout: 20000
@@ -67,3 +68,13 @@ tomcat_war_to_deploy_urls:
 tomcat_local_wars: false
 tomcat_war_to_deploy_path:
   - "{{ playbook_dir }}/sample.war"
+
+tomcat_pre_installed_folders_deployed:
+  docs:
+    deployed: true
+  examples:
+    deployed: true
+  manager:
+    deployed: true
+  host-manager:
+    deployed: true

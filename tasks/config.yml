@@ -13,10 +13,22 @@
     - { src: "setenv.sh.j2", dest: "{{ tomcat_bin_path }}/setenv.sh" }
   notify: restart tomcat
 
+- name: Tomcat | Ensure extra tomcat config file and template paths exists
+  file:
+    path: "{{ tomcat_conf_path }}/{{ item.path }}"
+    state: directory
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+    mode: 0640
+  with_filetree:
+    - "{{ tomcat_extra_conf_path }}/"
+    - "{{ tomcat_extra_conf_template_path }}/"
+  when: item.state == "directory"
+
 - name: Tomcat | Copy extra tomcat config files (provided by playbooks)
   copy:
     src: "{{ item.src }}"
-    dest: "{{ tomcat_conf_path }}/{{ item.path | basename }}"
+    dest: "{{ tomcat_conf_path }}/{{ item.path }}"
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
     mode: 0640
@@ -27,7 +39,7 @@
 - name: Tomcat | Copy extra tomcat config templates (provided by playbooks)
   template:
     src: "{{ item.src }}"
-    dest: "{{ tomcat_conf_path }}/{{ item.path | basename | splitext | first }}"  # This is to remove .j2 extension
+    dest: "{{ tomcat_conf_path }}/{{ item.path | splitext | first }}"  # This is to remove .j2 extension
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
     mode: 0640

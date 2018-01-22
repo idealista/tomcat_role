@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 ## [Unreleased](https://github.com/idealista/tomcat-role/tree/develop)
 
 ### Added
+- *[#29](https://github.com/idealista/tomcat-role/issues/29) Upgrade molecule* @jdvr
 - *[#26](https://github.com/idealista/tomcat-role/issues/26) Fix to copy extra configuration recursively* @dortegau
 - *[#24](https://github.com/idealista/tomcat-role/issues/24) Follow OWASP recommendations to protect Shutdown port* @dortegau
 - *[#21](https://github.com/idealista/tomcat-role/issues/21) Remove pre-installed folders from webapps* @dortegau

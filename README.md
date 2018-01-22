@@ -22,10 +22,10 @@ These instructions will get you a copy of the role for your ansible playbook. On
 
 ### Prerequisities
 
-Ansible 2.4.0.0 version installed.
+For compatible Ansible versions check [.travis.yml](.travis.yml).
 Inventory destination should be a Debian environment.
 
-For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Vagrant](https://www.vagrantup.com/) as driver (with [landrush](https://github.com/vagrant-landrush/landrush) plugin) and [VirtualBox](https://www.virtualbox.org/) as provider.
+For testing purposes, [Molecule](https://molecule.readthedocs.io/) with Docker as driver and [Goss](http://goss.rocks) as verifier
 
 ### Installing
 
@@ -64,15 +64,27 @@ Look to the defaults properties file to see the possible configuration propertie
 
 ## Testing
 
-```
-molecule test --platform=Debian9
+### Install dependencies
+
+```sh
+pipenv install
 ```
 
-See molecule.yml to check possible testing platforms.
+For more information read the [pipenv docs](https://docs.pipenv.org/).
+
+### Running test
+
+```
+molecule test
+```
+
+See molecule/molecule.yml to check possible testing platforms.
 
 ## Built With
 
 ![Ansible](https://img.shields.io/badge/ansible-2.4.2.0-green.svg)
+![Molecule](https://img.shields.io/badge/molecule-2.7.0-green.svg)
+![Goss](https://img.shields.io/badge/goss-0.3.5-green.svg)
 
 ## Versioning
 

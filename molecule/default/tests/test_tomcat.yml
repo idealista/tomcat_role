@@ -1,3 +1,5 @@
+---
+
 http:
   http://localhost:{{ tomcat_http_connector_port }}:
     status: 200

@@ -34,9 +34,9 @@ file:
   {{ tomcat_webapps_path }}/{{ key }}:
     exists: {{ value.deployed }}
 {% endfor %}
-  {{ tomcat_conf_path }}/test_file.xml:
+  {{ tomcat_conf_path }}/test/test_file.xml:
     exists: true
-  {{ tomcat_conf_path }}/test_template.xml:
+  {{ tomcat_conf_path }}/test/test_template.xml:
     exists: true
 {% if tomcat_download_wars %}
 {% for war in tomcat_war_to_deploy_urls %}

@@ -38,7 +38,7 @@ tomcat_ajp_connector_port: 8009
 tomcat_connector_redirect_port: 8443
 
 ## CATALINA_OPTS
-catalina_opts:
+tomcat_catalina_opts:
   - -Xms512m
   - -Xmx512m
 
@@ -78,3 +78,29 @@ tomcat_pre_installed_folders_deployed:
     deployed: true
   host-manager:
     deployed: true
+
+## TOMCAT AGENTS
+
+newrelic_url: http://download.newrelic.com/newrelic/java-agent/newrelic-agent
+newrelic_file: newrelic-java.zip
+newrelic_java_agent_url: "{{ newrelic_url }}/{{ newrelic_version }}/{{ newrelic_file }}"
+
+tomcat_agents_reinstall: false
+
+## Agent configuration (optional)
+
+# tomcat_agents_required_libs:
+#  - unzip
+#  - apt-transport-https
+
+# tomcat_agents_config:
+#   - name: "agent_name"
+#     download_url: "download_url"
+#     catalina_opts:
+#       - '-javaagent:{{ tomcat_install_path }}/agent_name/agent_file'
+#     configuration_files:
+#       - "configuration_file.yml"
+#     params: {
+#       application_name: "application_name",
+#       license_key: "license_key"
+#     }

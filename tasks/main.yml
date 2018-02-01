@@ -1,21 +1,27 @@
 ---
 
 - name: Tomcat | Install
-  include: install.yml
+  import_tasks: install.yml
   tags:
     - install
 
 - name: Tomcat | Service
-  include: service.yml
+  import_tasks: service.yml
   tags:
     - service
 
 - name: Tomcat | Config
-  include: config.yml
+  import_tasks: config.yml
   tags:
     - config
 
+- name: Tomcat | Agent config
+  import_tasks: agent.yml
+  tags:
+    - agent_config
+  when: tomcat_agents_config is defined
+
 - name: Tomcat | Deploy
-  include: deploy.yml
+  import_tasks: deploy.yml
   tags:
     - deploy

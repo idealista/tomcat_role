@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/tomcat-role/tree/develop)
 
+## [1.5.0](https://github.com/idealista/tomcat-role/tree/1.5.0)
+### Added
+- *[#40](https://github.com/idealista/tomcat-role/issues/40) Support for addons like java-agents* @sorobon
+
 ## [1.4.0](https://github.com/idealista/tomcat-role/tree/1.4.0)
 
 ### Added

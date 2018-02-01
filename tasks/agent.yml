@@ -1,0 +1,79 @@
+---
+
+- name: Tomcat agent installation | Install required packages
+  apt:
+    pkg: "{{ item }}"
+    state: present
+  with_items: '{{ tomcat_agents_required_libs }}'
+
+- name: Tomcat agent installation | Ensure install path
+  file:
+    path: "{{ tomcat_install_path }}/{{ item.name }}"
+    state: directory
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+  with_items: '{{ tomcat_agents_config }}'
+
+- name: Tomcat agent installation | Check if agent is installed
+  stat:
+    path: "{{ tomcat_install_path }}/{{ item.0.name }}/{{ item.1 | basename }}"
+  register: agent_file_exists
+  with_subelements:
+    - "{{ tomcat_agents_config }}"
+    - catalina_opts
+
+- name: Tomcat agent installation | Download agent
+  get_url:
+    dest: "/tmp"
+    url: "{{ item.download_url }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+  register: agent_downloaded
+  with_items: '{{ tomcat_agents_config }}'
+
+- name: Tomcat agent installation | Unarchive package
+  unarchive:
+    src: "/tmp/{{ item.download_url | basename }}"
+    dest: "{{ tomcat_install_path }}"
+    remote_src: yes
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+    mode: 0755
+  when: agent_downloaded.changed
+  with_items: '{{ tomcat_agents_config }}'
+  tags:
+    - skip_ansible_lint
+
+- name: Tomcat agent installation | Check configuration files
+  set_fact:
+    tomcat_agent_configuration: "{{ tomcat_agent_configuration|default([]) + [ {'name': item.0.name, 'file': item.1, 'params': item.0.params}] }}"
+  with_subelements:
+    - "{{ tomcat_agents_config }}"
+    - configuration_files
+
+- name: Tomcat agent installation | Configure the Java agent
+  template:
+    src: "{{ playbook_dir }}/templates/tomcat/agents/{{ item.name }}/{{ item.file }}.j2"
+    dest: "{{ tomcat_install_path }}/{{ item.name }}/{{ item.file }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+  with_items:
+    - '{{ tomcat_agent_configuration }}'
+
+- name: Tomcat agent installation | Check catalina options
+  set_fact:
+    tomcat_agent_catalina_opts: "{% set tomcat_agent_catalina_opts = tomcat_agent_catalina_opts|default([]) + [item.1] %}{{tomcat_agent_catalina_opts|list}}"
+  with_subelements:
+    - "{{ tomcat_agents_config }}"
+    - catalina_opts
+
+- name: Tomcat agent installation | Configure catalina options
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: 0640
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+  with_items:
+    - { src: "setagentenv.sh.j2", dest: "{{ tomcat_bin_path }}/setagentenv.sh" }
+  notify: restart tomcat

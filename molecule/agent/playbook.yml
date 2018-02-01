@@ -1,0 +1,13 @@
+---
+- name: Converge
+  hosts: all
+  pre_tasks:
+    - name: Tomcat | Installing required dependencies
+      apt:
+        pkg: "{{ item }}"
+        state: present
+      with_items:
+        - net-tools
+  roles:
+    - java
+    - tomcat-role

@@ -1,0 +1,20 @@
+---
+
+## JAVA
+java_implementation: openjdk
+
+tomcat_agents_required_libs:
+  - unzip
+  - apt-transport-https
+
+tomcat_agents_config:
+  - name: "newrelic"
+    download_url: "http://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-java.zip"
+    catalina_opts:
+      - '-javaagent:{{ tomcat_install_path }}/newrelic/newrelic.jar'
+    configuration_files:
+      - "newrelic.yml"
+    params: {
+      application_name: "application_sample_name",
+      license_key: "sddsasd"
+    }

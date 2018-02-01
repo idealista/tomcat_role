@@ -79,14 +79,6 @@ tomcat_pre_installed_folders_deployed:
   host-manager:
     deployed: true
 
-## TOMCAT AGENTS
-
-newrelic_url: http://download.newrelic.com/newrelic/java-agent/newrelic-agent
-newrelic_file: newrelic-java.zip
-newrelic_java_agent_url: "{{ newrelic_url }}/{{ newrelic_version }}/{{ newrelic_file }}"
-
-tomcat_agents_reinstall: false
-
 ## Agent configuration (optional)
 
 # tomcat_agents_required_libs:

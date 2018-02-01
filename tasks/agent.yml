@@ -33,7 +33,7 @@
 
 - name: Tomcat agent installation | Unarchive package
   unarchive:
-    src: "/tmp/newrelic-java.zip"
+    src: "/tmp/{{ item.download_url | basename }}"
     dest: "{{ tomcat_install_path }}"
     remote_src: yes
     owner: "{{ tomcat_user }}"

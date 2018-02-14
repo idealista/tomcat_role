@@ -10,6 +10,14 @@
     group: "{{ tomcat_group }}"
     shell: /bin/bash
 
+- name: Tomcat | Create logs path
+  file:
+    path: "{{ tomcat_logs_path }}"
+    state: directory
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+  when: tomcat_logs_path is defined
+
 - name: Tomcat | Create install path
   file:
     path: "{{ tomcat_install_path }}"
@@ -33,7 +41,7 @@
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
     mode: 0750
-  when: 'tomcat_force_reinstall or tomcat_check|failed or tomcat_check.stdout == "Apache Tomcat/{{ tomcat_version }}"'
+  when: 'tomcat_force_reinstall or tomcat_check|failed or tomcat_check.stdout == "Apache Tomcat/tomcat_version"'
 
 - name: Tomcat | Copy Daemon script
   template:

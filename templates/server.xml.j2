@@ -132,7 +132,8 @@
         <!-- Access log processes all example.
              Documentation at: /docs/config/valve.html
              Note: The pattern used is equivalent to using pattern="common" -->
-        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+        {% set path = tomcat_logs_path|default(tomcat_default_log_valves) %}
+        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="{{ path }}"
                prefix="localhost_access_log" suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />
 

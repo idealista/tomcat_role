@@ -11,3 +11,6 @@ elif [ -r "$CATALINA_HOME/bin/setagentenv.sh" ]; then
   . "$CATALINA_HOME/bin/setagentenv.sh"
 fi
 {% endif %}
+
+{% set path = tomcat_logs_path|default(tomcat_default_log_catalina_out) %}
+export CATALINA_OUT={{ path }}/catalina.out

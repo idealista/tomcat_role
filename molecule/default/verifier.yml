@@ -24,27 +24,39 @@
     - ../../vars/main.yml
     - "{{ playbook_dir }}/group_vars/tomcat/main.yml"
 
-
   tasks:
-    - name: Download and install Goss
+    - name: Download and install goss
       get_url:
         url: "{{ goss_url }}"
         dest: "{{ goss_dst }}"
         mode: 0755
 
-    - name: Copy Goss tests to remote
-      template:
+    - name: Copy tests to remote
+      copy:
         src: "{{ item }}"
         dest: "{{ goss_test_directory }}/{{ item | basename }}"
       with_fileglob:
         - "{{ playbook_dir }}/tests/test_*.yml"
+
+    - name: Copy vars in json to template
+      template:
+        src: "{{ item }}"
+        dest: "{{ goss_test_directory }}/vars.yml.j2"
+      with_fileglob:
+        - "{{ playbook_dir }}/tests/dumpall.j2"
+      delegate_to: localhost
+
+    - name: Copy vars in json to remote
+      template:
+        src: "{{ goss_test_directory }}/vars.yml.j2"
+        dest: "{{ goss_test_directory }}/vars.yml"
 
     - name: Register test files
       shell: "ls {{ goss_test_directory }}/test_*.yml"
       register: test_files
 
     - name: Execute Goss tests
-      command: "goss -g {{ item }} validate --format {{ goss_format }}"
+      command: "goss -g {{ item }} --vars {{ goss_test_directory }}/vars.yml validate --format {{ goss_format }}"
       register: test_results
       with_items: "{{ test_files.stdout_lines }}"
       ignore_errors: true

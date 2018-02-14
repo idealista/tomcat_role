@@ -11,6 +11,7 @@
     - { src: "tomcat-users.xml.j2", dest: "{{ tomcat_conf_path }}/tomcat-users.xml" }
     - { src: "server.xml.j2", dest: "{{ tomcat_conf_path }}/server.xml" }
     - { src: "setenv.sh.j2", dest: "{{ tomcat_bin_path }}/setenv.sh" }
+    - { src: "logging.properties.j2", dest: "{{ tomcat_conf_path }}/logging.properties" }
   notify: restart tomcat
 
 - name: Tomcat | Ensure extra tomcat config file and template paths exists

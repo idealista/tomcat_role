@@ -1,0 +1,42 @@
+---
+
+http:
+  http://localhost:{{ .Vars.tomcat_http_connector_port }}:
+    status: 200
+
+service:
+  tomcat:
+    enabled: true
+    running: true
+
+user:
+  {{ .Vars.tomcat_user }}:
+    exists: true
+    groups:
+      - {{ .Vars.tomcat_group }}
+
+group:
+  {{ .Vars.tomcat_group }}:
+    exists: true
+
+port:
+  tcp:{{ .Vars.tomcat_http_connector_port }}:
+    listening: true
+file:
+  {{ .Vars.tomcat_logs_path }}:
+    filetype: directory
+    exists: true
+    owner: {{ .Vars.tomcat_user }}
+    group: {{ .Vars.tomcat_group }}
+  {{ .Vars.tomcat_logs_path }}/catalina.out:
+    exists: true
+  {{ .Vars.tomcat_logs_path }}/host-manager.{{ .Vars.ansible_date_time.date }}.log:
+    exists: true
+  {{ .Vars.tomcat_logs_path }}/manager.{{ .Vars.ansible_date_time.date }}.log:
+    exists: true
+  {{ .Vars.tomcat_logs_path }}/catalina.{{ .Vars.ansible_date_time.date }}.log:
+    exists: true
+  {{ .Vars.tomcat_logs_path }}/localhost.{{ .Vars.ansible_date_time.date }}.log:
+    exists: true
+  {{ .Vars.tomcat_logs_path }}/localhost_access_log.{{ .Vars.ansible_date_time.date }}.txt:
+    exists: true

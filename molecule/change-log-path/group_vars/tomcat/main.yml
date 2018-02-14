@@ -1,0 +1,6 @@
+---
+
+## JAVA
+java_implementation: openjdk
+
+tomcat_logs_path: /var/log/tomcat

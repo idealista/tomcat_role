@@ -23,9 +23,8 @@ provisioner:
   lint:
     name: ansible-lint
 scenario:
-  name: agent
+  name: change-log-path
 verifier:
   name: goss
-  enabled: True
   lint:
     name: flake8

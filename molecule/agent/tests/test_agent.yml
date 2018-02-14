@@ -1,0 +1,50 @@
+---
+
+http:
+  http://localhost:{{ .Vars.tomcat_http_connector_port }}:
+    status: 200
+  {{ range $key := index .Vars.tomcat_agents_config }}
+  {{ $key.download_url }}:
+      status: 200
+  {{ end }}
+
+service:
+  tomcat:
+    enabled: true
+    running: true
+
+user:
+  {{ .Vars.tomcat_user }}:
+    exists: true
+    groups:
+      - {{ .Vars.tomcat_group }}
+
+group:
+  {{ .Vars.tomcat_group }}:
+    exists: true
+
+{{ $user := .Vars.tomcat_user }}
+{{ $group := .Vars.tomcat_group }}
+{{ $install_path := .Vars.tomcat_install_path }}
+port:
+  tcp:{{ .Vars.tomcat_http_connector_port }}:
+    listening: true
+file:
+  {{ range $key := index .Vars.tomcat_agents_config }}
+  {{ $install_path }}:
+    filetype: directory
+    exists: true
+    owner: {{ $user }}
+    group: {{ $group }}
+  {{ range $file := index $key.configuration_files}}
+  {{ $install_path }}/{{ $key.name }}/{{ $file }}:
+    exists: true
+  {{ end }}
+  {{ range $option := index $key.catalina_opts}}
+  {{ $install_path }}/bin/setagentenv.sh:
+    exists: true
+    contains:
+      - {{ $option }}
+  {{ end }}
+
+{{ end }}

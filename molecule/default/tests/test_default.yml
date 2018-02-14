@@ -1,0 +1,47 @@
+http:
+  http://localhost:{{ .Vars.tomcat_http_connector_port }}:
+    status: 200
+
+service:
+  tomcat:
+    enabled: true
+    running: true
+
+user:
+  {{ .Vars.tomcat_user }}:
+    exists: true
+    groups:
+      - {{ .Vars.tomcat_group }}
+
+group:
+  {{ .Vars.tomcat_group }}:
+    exists: true
+
+port:
+  tcp:{{ .Vars.tomcat_http_connector_port }}:
+    listening: true
+  tcp:{{ .Vars.tomcat_shutdown_port }}:
+    listening: true
+
+{{ $webapps_path := .Vars.tomcat_webapps_path }}
+file:
+{{ range $key, $value := index .Vars.tomcat_pre_installed_folders_deployed }}
+  {{ $webapps_path }}/{{ $key }}:
+    exists: {{ $value.deployed }}
+{{ end }}
+  {{ .Vars.tomcat_conf_path }}/test/test_file.xml:
+    exists: true
+  {{ .Vars.tomcat_conf_path }}/test/test_template.xml:
+    exists: true
+{{ if ( .Vars.tomcat_download_wars ) and eq .Vars.tomcat_download_wars "true" }}
+{{ range index .Vars.tomcat_war_to_deploy_urls }}
+  {{ $webapps_path }}/{{ .name }}:
+    exists: true
+{{ end }}
+{{ end }}
+
+command:
+  java -cp {{ .Vars.tomcat_install_path }}/lib/catalina.jar org.apache.catalina.util.ServerInfo | grep 'Server version':
+    exit-status: 0
+    stdout:
+      - "{{ .Vars.tomcat_version }}"

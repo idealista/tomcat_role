@@ -1,0 +1,89 @@
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
+{% set path = tomcat_logs_path|default(tomcat_default_log_logging_path) %}
+{% set manager_deployed = True %}
+{% if tomcat_pre_installed_folders_deployed.manager is defined %}
+  {% set manager_deployed = tomcat_pre_installed_folders_deployed.manager.deployed|default(True) %}
+{% endif %}
+{% set host_manager_deployed = True %}
+{% if tomcat_pre_installed_folders_deployed['host-manager'] is defined %}
+  {% set host_manager_deployed = tomcat_pre_installed_folders_deployed['host-manager'].deployed|default(True) %}
+{% endif %}
+
+handlers = 1catalina.org.apache.juli.AsyncFileHandler, 2localhost.org.apache.juli.AsyncFileHandler, {% if manager_deployed %}3manager.org.apache.juli.AsyncFileHandler,{% endif %} {% if host_manager_deployed %}4host-manager.org.apache.juli.AsyncFileHandler,{% endif %} java.util.logging.ConsoleHandler
+
+.handlers = 1catalina.org.apache.juli.AsyncFileHandler, java.util.logging.ConsoleHandler
+
+############################################################
+# Handler specific properties.
+# Describes specific configuration info for Handlers.
+############################################################
+
+1catalina.org.apache.juli.AsyncFileHandler.level = {{ tomcat_logs_level.juli }}
+1catalina.org.apache.juli.AsyncFileHandler.directory = {{ path }}
+1catalina.org.apache.juli.AsyncFileHandler.prefix = catalina.
+
+2localhost.org.apache.juli.AsyncFileHandler.level = {{ tomcat_logs_level.juli }}
+2localhost.org.apache.juli.AsyncFileHandler.directory = {{ path }}
+2localhost.org.apache.juli.AsyncFileHandler.prefix = localhost.
+
+{% if manager_deployed %}
+3manager.org.apache.juli.AsyncFileHandler.level = {{ tomcat_logs_level.juli }}
+3manager.org.apache.juli.AsyncFileHandler.directory = {{ path }}
+3manager.org.apache.juli.AsyncFileHandler.prefix = manager.
+{% endif %}
+
+{% if host_manager_deployed %}
+4host-manager.org.apache.juli.AsyncFileHandler.level = {{ tomcat_logs_level.juli }}
+4host-manager.org.apache.juli.AsyncFileHandler.directory = {{ path }}
+4host-manager.org.apache.juli.AsyncFileHandler.prefix = host-manager.
+{% endif %}
+
+java.util.logging.ConsoleHandler.level = {{ tomcat_logs_level.juli }}
+java.util.logging.ConsoleHandler.formatter = org.apache.juli.OneLineFormatter
+
+
+############################################################
+# Facility specific properties.
+# Provides extra control for each logger.
+############################################################
+
+org.apache.catalina.core.ContainerBase.[Catalina].[localhost].level = {{ tomcat_logs_level.catalina }}
+org.apache.catalina.core.ContainerBase.[Catalina].[localhost].handlers = 2localhost.org.apache.juli.AsyncFileHandler
+
+{% if manager_deployed %}
+org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/manager].level = {{ tomcat_logs_level.catalina }}
+org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/manager].handlers = 3manager.org.apache.juli.AsyncFileHandler
+{% endif %}
+
+{% if host_manager_deployed %}
+org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/host-manager].level = {{ tomcat_logs_level.catalina }}
+org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/host-manager].handlers = 4host-manager.org.apache.juli.AsyncFileHandler
+{% endif %}
+
+# For example, set the org.apache.catalina.util.LifecycleBase logger to log
+# each component that extends LifecycleBase changing state:
+#org.apache.catalina.util.LifecycleBase.level = FINE
+
+# To see debug messages in TldLocationsCache, uncomment the following line:
+#org.apache.jasper.compiler.TldLocationsCache.level = FINE
+
+# To see debug messages for HTTP/2 handling, uncomment the following line:
+#org.apache.coyote.http2.level = FINE
+
+# To see debug messages for WebSocket handling, uncomment the following line:
+#org.apache.tomcat.websocket.level = FINE

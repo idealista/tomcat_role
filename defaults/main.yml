@@ -78,6 +78,23 @@ tomcat_pre_installed_folders_deployed:
     deployed: true
   host-manager:
     deployed: true
+  ROOT:
+    deployed: true
+
+# tomcat_logs_path: /var/log/tomcat
+tomcat_logs_level: {
+  juli: FINE,
+  catalina: INFO
+}
+
+tomcat_default_log_catalina_out: '"$CATALINA_BASE"/logs'
+tomcat_default_log_logging_path: "${catalina.base}/logs"
+tomcat_default_log_valves: "logs"
+
+
+# por defecto del script: "$CATALINA_BASE"/logs/catalina.out
+# del logging.properties:   ${catalina.base}/logs
+# de las valves: "logs"
 
 ## Agent configuration (optional)
 

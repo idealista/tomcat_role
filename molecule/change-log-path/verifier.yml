@@ -28,7 +28,7 @@
     - name: Download and install goss
       get_url:
         url: "{{ goss_url }}"
-        dest: "/usr/local/bin/goss"
+        dest: "{{ goss_dst }}"
         mode: 0755
 
     - name: Copy tests to remote

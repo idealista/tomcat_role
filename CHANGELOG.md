@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/tomcat-role/tree/develop)
 
+## [1.6.1](https://github.com/idealista/tomcat-role/tree/1.6.1)
+### Changed
+- *[#46](https://github.com/idealista/tomcat-role/issues/46) Updated tomcat version to 8.5.28* @sorobon
+
 ## [1.6.0](https://github.com/idealista/tomcat-role/tree/1.6.0)
 ### Added
 - *[#43](https://github.com/idealista/tomcat-role/issues/43) Allow to change log files directory* @sorobon

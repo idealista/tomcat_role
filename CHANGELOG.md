@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/tomcat-role/tree/develop)
+
+## [1.6.1](https://github.com/idealista/tomcat-role/tree/1.6.1)
 ### Changed
 - *[#46](https://github.com/idealista/tomcat-role/issues/46) Updated tomcat version to 8.5.28* @sorobon
 

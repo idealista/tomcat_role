@@ -7,6 +7,8 @@ export CATALINA_OPTS="$CATALINA_OPTS {{ option }}"
 {% if tomcat_agents_config is defined %}
 if [ -r "$CATALINA_BASE/bin/setagentenv.sh" ]; then
   . "$CATALINA_BASE/bin/setagentenv.sh"
+elif [ -r "$CATALINA_HOME/bin/setagentenv.sh" ]; then
+  . "$CATALINA_HOME/bin/setagentenv.sh"
 fi
 {% endif %}
 

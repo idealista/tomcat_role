@@ -1,5 +1,12 @@
 #! /bin/sh
 
+{% if tomcat_environment_vars is defined %}
+{% for env_var in tomcat_environment_vars %}
+export {{ env_var.name }}={{ env_var.value }}
+{% endfor %}
+{% endif %}
+
+
 {% for option in tomcat_catalina_opts %}
 export CATALINA_OPTS="$CATALINA_OPTS {{ option }}"
 {% endfor %}

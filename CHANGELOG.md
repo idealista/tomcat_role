@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/tomcat-role/tree/develop)
+### Changed
+- *[#53](https://github.com/idealista/tomcat-role/issues/53) Allow the option to pass additional environment vars* @sorobon
+- *Tomcat version to 8.5.31* @sorobon
+### Fixed
+- *[#4](https://github.com/idealista/tomcat-role/issues/4) Notify restart handler after new files copied/template* @sorobon
+
 
 ## [1.6.2](https://github.com/idealista/tomcat-role/tree/1.6.2)
 ### Changed

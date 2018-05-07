@@ -1,7 +1,7 @@
 ---
 ## General
 
-tomcat_version: 8.5.29
+tomcat_version: 8.5.31
 
 ## Service options
 
@@ -41,6 +41,10 @@ tomcat_connector_redirect_port: 8443
 tomcat_catalina_opts:
   - -Xms512m
   - -Xmx512m
+
+tomcat_environment_vars:
+  - name: UMASK
+    value: "\"0022\""
 
 ## Tomcat roles
 tomcat_roles:

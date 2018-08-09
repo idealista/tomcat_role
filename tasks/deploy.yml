@@ -22,7 +22,7 @@
     validate_certs: no
   with_items: "{{ tomcat_war_to_deploy_from_maven }}"
   notify: restart tomcat
-  when: 
+  when:
     - tomcat_download_from_maven_wars
     - ansible_version.full is version_compare('2.6', '<')
 
@@ -40,7 +40,7 @@
     verify_checksum: "{{ item.verify_checksum | default(always) }}"
   with_items: "{{ tomcat_war_to_deploy_from_maven }}"
   notify: restart tomcat
-  when: 
+  when:
     - tomcat_download_from_maven_wars
     - ansible_version.full is version_compare('2.6', '>=')
 

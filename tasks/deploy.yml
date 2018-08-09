@@ -37,7 +37,7 @@
     classifier: "{{ item.classifier | default(omit) }}"
     dest: "{{ tomcat_webapps_path }}/{{ item.name }}"
     validate_certs: no
-    verify_checksum: "{{ item.verify_checksum | default(always) }}"
+    verify_checksum: "{{ item.verify_checksum | default('always') }}"
   with_items: "{{ tomcat_war_to_deploy_from_maven }}"
   notify: restart tomcat
   when:

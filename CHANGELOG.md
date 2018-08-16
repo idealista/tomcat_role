@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/tomcat-role/tree/develop)
+
+## [1.8.0](https://github.com/idealista/tomcat-role/tree/1.8.0)
+[Full Changelog](https://github.com/idealista/tomcat-role/compare/1.7.0...1.8.0)
 ### Added
 - *[#56](https://github.com/idealista/tomcat-role/issues/56) Add Ansible 2.6 support for module maven_artifact* @jnogol
 

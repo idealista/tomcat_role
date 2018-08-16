@@ -9,7 +9,7 @@
   notify: restart tomcat
   when: tomcat_download_from_maven_wars
 
-- name: Tomcat | Download wars from maven
+- name: Tomcat | Download wars from maven (prior to Ansible 2.6)
   maven_artifact:
     group_id: "{{ item.group_id }}"
     artifact_id: "{{ item.artifact_id }}"
@@ -22,7 +22,27 @@
     validate_certs: no
   with_items: "{{ tomcat_war_to_deploy_from_maven }}"
   notify: restart tomcat
-  when: tomcat_download_from_maven_wars
+  when:
+    - tomcat_download_from_maven_wars
+    - ansible_version.full is version_compare('2.6', '<')
+
+- name: Tomcat | Download wars from maven
+  maven_artifact:
+    group_id: "{{ item.group_id }}"
+    artifact_id: "{{ item.artifact_id }}"
+    extension: "{{ item.extension }}"
+    state: present
+    version: "{{ item.version | default('latest') }}"
+    repository_url: "{{ item.repository_url }}"
+    classifier: "{{ item.classifier | default(omit) }}"
+    dest: "{{ tomcat_webapps_path }}/{{ item.name }}"
+    validate_certs: no
+    verify_checksum: "{{ item.verify_checksum | default('always') }}"
+  with_items: "{{ tomcat_war_to_deploy_from_maven }}"
+  notify: restart tomcat
+  when:
+    - tomcat_download_from_maven_wars
+    - ansible_version.full is version_compare('2.6', '>=')
 
 - name: Tomcat | Change maven downloaded war owner
   file:

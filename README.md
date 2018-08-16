@@ -42,6 +42,8 @@ or using [Ansible Galaxy](https://galaxy.ansible.com/idealista/tomcat-role/) as 
 
 ```
 - src: idealista.tomcat-role
+  version: 1.0.0
+  name: tomcat
 ```
 
 Install the role with ansible-galaxy command:
@@ -80,10 +82,12 @@ molecule test
 
 See molecule/molecule.yml to check possible testing platforms.
 
-## Built With
+## Works With
 
-![Ansible](https://img.shields.io/badge/ansible-2.4.2.0-green.svg)
-![Molecule](https://img.shields.io/badge/molecule-2.7.0-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.4.0.0-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.5.0.0-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.6.2.0-green.svg)
+![Molecule](https://img.shields.io/badge/molecule-2.10.0-green.svg)
 ![Goss](https://img.shields.io/badge/goss-0.3.5-green.svg)
 
 ## Versioning

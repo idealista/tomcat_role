@@ -24,7 +24,7 @@ provisioner:
   lint:
     name: ansible-lint
 scenario:
-  name: tomcat
+  name: default
 verifier:
   name: goss
   lint:

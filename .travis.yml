@@ -22,6 +22,7 @@ env:
     # https://packages.debian.org/jessie-backports/openjdk-8-jdk-headless
     - DOCKER_IMAGE_BASE=idealista/jdk:8u171-jessie-openjdk-headless
       DOCKER_TAG_TO_PUBLISH=tomcat-8u171-jessie
+      MOLECULE_DEBUG=true
 
     # Debian Stretch
     # https://packages.debian.org/stretch/openjdk-8-jdk-headless

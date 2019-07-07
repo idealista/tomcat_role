@@ -12,7 +12,7 @@ platforms:
   - name: tomcat
     groups:
       - tomcat
-    image: ${DOCKER_IMAGE_BASE:-idealista/jdk:latests}
+    image: ${DOCKER_IMAGE_BASE:-"idealista/jdk:latest"}
     privileged: true
     capabilities:
       - SYS_ADMIN

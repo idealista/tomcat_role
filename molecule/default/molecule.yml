@@ -5,6 +5,9 @@ driver:
   name: docker
 lint:
   name: yamllint
+  options:
+    config-file: .yamllint
+
 platforms:
   - name: tomcat
     groups:
@@ -25,4 +28,4 @@ scenario:
 verifier:
   name: goss
   lint:
-    name: flake8
+    name: yamllint

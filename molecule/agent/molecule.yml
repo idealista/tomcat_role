@@ -28,4 +28,4 @@ verifier:
   name: goss
   enabled: True
   lint:
-    name: flake8
+    name: yamllint

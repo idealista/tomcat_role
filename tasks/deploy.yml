@@ -19,7 +19,7 @@
     repository_url: "{{ item.repository_url }}"
     classifier: "{{ item.classifier | default(omit) }}"
     dest: "{{ tomcat_webapps_path }}/{{ item.name }}"
-    validate_certs: no
+    validate_certs: false
   with_items: "{{ tomcat_war_to_deploy_from_maven }}"
   notify: restart tomcat
   when:
@@ -36,7 +36,7 @@
     repository_url: "{{ item.repository_url }}"
     classifier: "{{ item.classifier | default(omit) }}"
     dest: "{{ tomcat_webapps_path }}/{{ item.name }}"
-    validate_certs: no
+    validate_certs: false
     verify_checksum: "{{ item.verify_checksum | default('always') }}"
   with_items: "{{ tomcat_war_to_deploy_from_maven }}"
   notify: restart tomcat
@@ -57,7 +57,7 @@
     url: "{{ item.url }}"
     dest: "{{ tomcat_webapps_path }}/{{ item.name }}"
     mode: 0755
-    validate_certs: no
+    validate_certs: false
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
   with_items: "{{ tomcat_war_to_deploy_urls }}"

@@ -10,7 +10,7 @@ tomcat_user: tomcat
 tomcat_group: tomcat
 
 # start on boot
-tomcat_service_enabled: yes
+tomcat_service_enabled: true
 # current state: started, stopped
 tomcat_service_state: started
 

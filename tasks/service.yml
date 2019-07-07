@@ -5,4 +5,4 @@
     name: tomcat
     state: "{{ tomcat_service_state }}"
     enabled: "{{ tomcat_service_enabled }}"
-    daemon_reload: yes
+    daemon_reload: true

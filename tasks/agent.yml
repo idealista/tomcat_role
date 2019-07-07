@@ -35,7 +35,7 @@
   unarchive:
     src: "/tmp/{{ item.download_url | basename }}"
     dest: "{{ tomcat_install_path }}"
-    remote_src: yes
+    remote_src: true
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
     mode: 0755

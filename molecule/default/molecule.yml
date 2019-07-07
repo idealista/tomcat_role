@@ -12,8 +12,8 @@ platforms:
   - name: tomcat
     groups:
       - tomcat
-    image: ${DOCKER_IMAGE_BASE:-debian:jessie-slim}
-    privileged: True
+    image: ${DOCKER_IMAGE_BASE:-idealista/jdk:latests}
+    privileged: true
     capabilities:
       - SYS_ADMIN
     volumes:

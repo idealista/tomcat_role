@@ -5,13 +5,15 @@ driver:
   name: docker
 lint:
   name: yamllint
+  options:
+    config-file: .yamllint
 
 platforms:
   - name: tomcat
     groups:
       - tomcat
-    image: idealista/java-role:latest
-    privileged: True
+    image: idealista/jdk:latest
+    privileged: true
     capabilities:
       - SYS_ADMIN
     volumes:

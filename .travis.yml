@@ -25,17 +25,6 @@ env:
       TOMCAT_VERSION=8.5.42
       DOCKER_TAG_TO_PUBLISH=tomcat-8.5.42-jessie-8u171
 
-    # Debian Stretch
-    # https://packages.debian.org/stretch/openjdk-8-jdk-headless
-    - DOCKER_IMAGE_BASE=idealista/jdk:8u181-stretch-openjdk-headless
-      TOMCAT_VERSION=8.5.42
-      DOCKER_TAG_TO_PUBLISH=tomcat-8.5.42-stretch-8u181
-
-    # https://packages.debian.org/stretch-backports/openjdk-11-jdk-headless
-    - DOCKER_IMAGE_BASE=idealista/jdk:11.0.2-stretch-openjdk-headless
-      TOMCAT_VERSION=8.5.42
-      DOCKER_TAG_TO_PUBLISH=tomcat-8.5.42-stretch-11.0.2
-
     # Ubuntu Xenial
     # https://packages.ubuntu.com/xenial/openjdk-8-jdk
     - DOCKER_IMAGE_BASE=idealista/jdk:8u191-xenial-openjdk-headless
@@ -64,7 +53,7 @@ env:
       DOCKER_TAG_TO_PUBLISH=tomcat-8.5.42-centos-11
 
 script:
-  - MOLECULE_DEBUG=true pipenv run molecule test
+  - pipenv run molecule test --all
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

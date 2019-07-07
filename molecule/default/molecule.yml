@@ -12,7 +12,7 @@ platforms:
   - name: tomcat
     groups:
       - tomcat
-    image: idealista/java-role:latest
+    image: ${DOCKER_IMAGE_BASE:-debian:jessie-slim}
     privileged: True
     capabilities:
       - SYS_ADMIN
@@ -24,7 +24,7 @@ provisioner:
   lint:
     name: ansible-lint
 scenario:
-  name: default
+  name: tomcat
 verifier:
   name: goss
   lint:

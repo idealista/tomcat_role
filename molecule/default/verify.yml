@@ -47,7 +47,7 @@
       delegate_to: localhost
 
     - name: Copy vars in json to remote
-      copy:
+      template:
         src: "{{ goss_test_directory }}/vars.yml.j2"
         dest: "{{ goss_test_directory }}/vars.yml"
 

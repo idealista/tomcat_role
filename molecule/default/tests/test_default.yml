@@ -25,7 +25,7 @@ port:
 
 {{ $webapps_path := .Vars.tomcat_webapps_path }}
 file:
-{{ range $key, $value := .Vars.tomcat_pre_installed_folders_deployed }}
+{{ range $key, $value := index .Vars.tomcat_pre_installed_folders_deployed }}
   {{ $webapps_path }}/{{ $key }}:
     exists: {{ $value.deployed }}
 {{ end }}

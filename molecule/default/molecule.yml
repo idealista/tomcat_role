@@ -18,7 +18,6 @@ platforms:
       - SYS_ADMIN
     volumes:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
-    command: '/lib/systemd/systemd'
 provisioner:
   name: ansible
   inventory:

@@ -21,6 +21,10 @@ platforms:
     command: '/lib/systemd/systemd'
 provisioner:
   name: ansible
+  inventory:
+    group_vars:
+      tomcat:
+        tomcat_version: ${TOMCAT_VERSION:-8.5.42}
   lint:
     name: ansible-lint
 scenario:

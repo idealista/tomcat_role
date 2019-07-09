@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  author: Idealista S.A.U.
   company: Idealista S.A.U.
   description: Tomcat role
   min_ansible_version: 2.4.0.0

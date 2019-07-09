@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/tomcat-role/tree/develop)
 
+## [1.9.0](https://github.com/idealista/tomcat-role/tree/1.9.0)
+[Full Changelog](https://github.com/idealista/tomcat-role/compare/1.8.0...1.9.0)
+### Added
+- *[#59](https://github.com/idealista/tomcat-role/issues/59) Add support for CentOS* @apolloclark
+
 ## [1.8.0](https://github.com/idealista/tomcat-role/tree/1.8.0)
 [Full Changelog](https://github.com/idealista/tomcat-role/compare/1.7.0...1.8.0)
 ### Added

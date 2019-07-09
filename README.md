@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/idealista/tomcat-role.svg?branch=master)](https://travis-ci.org/idealista/tomcat-role)
 # Tomcat Ansible role
 
-This ansible role installs a Tomcat server in a debian environment.
+This ansible role installs a Tomcat server in an Ubuntu 18.04 Bionic / 16.04 Xenial, Debian 9 Stretch / 8 Jessie, or CentOS 7 environment.
 
 - [Getting Started](#getting-started)
 	- [Prerequisities](#prerequisities)
@@ -18,12 +18,12 @@ This ansible role installs a Tomcat server in a debian environment.
 
 ## Getting Started
 
-These instructions will get you a copy of the role for your ansible playbook. Once launched, it will install a [Tomcat](https://tomcat.apache.org/) server in a Debian system.
+These instructions will get you a copy of the role for your ansible playbook. Once launched, it will install a [Tomcat](https://tomcat.apache.org/) server.
 
 ### Prerequisities
 
 For compatible Ansible versions check [.travis.yml](.travis.yml).
-Inventory destination should be a Debian environment.
+Inventory destination should be an Ubuntu 18.04 Bionic / 16.04 Xenial, Debian 9 Stretch / 8 Jessie, or CentOS 7 environment.
 
 For testing purposes, [Molecule](https://molecule.readthedocs.io/) with Docker as driver and [Goss](http://goss.rocks) as verifier
 
@@ -34,7 +34,7 @@ Create or add to your roles dependency file (e.g requirements.yml) from GitHub:
 ```
 - src: http://github.com/idealista/tomcat-role.git
   scm: git
-  version: 1.0.0
+  version: 1.9.0
   name: tomcat
 ```
 
@@ -42,7 +42,7 @@ or using [Ansible Galaxy](https://galaxy.ansible.com/idealista/tomcat-role/) as 
 
 ```
 - src: idealista.tomcat-role
-  version: 1.0.0
+  version: 1.9.0
   name: tomcat
 ```
 
@@ -69,7 +69,7 @@ Look to the defaults properties file to see the possible configuration propertie
 ### Install dependencies
 
 ```sh
-pipenv install
+pipenv install -r test-requirements.txt --python 2.7
 ```
 
 For more information read the [pipenv docs](https://docs.pipenv.org/).
@@ -77,18 +77,16 @@ For more information read the [pipenv docs](https://docs.pipenv.org/).
 ### Running test
 
 ```
-molecule test
+pipenv run molecule test --all
 ```
 
 See molecule/molecule.yml to check possible testing platforms.
 
 ## Works With
 
-![Ansible](https://img.shields.io/badge/ansible-2.4.0.0-green.svg)
-![Ansible](https://img.shields.io/badge/ansible-2.5.0.0-green.svg)
-![Ansible](https://img.shields.io/badge/ansible-2.6.2.0-green.svg)
-![Molecule](https://img.shields.io/badge/molecule-2.10.0-green.svg)
-![Goss](https://img.shields.io/badge/goss-0.3.5-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.8.2.0-green.svg)
+![Molecule](https://img.shields.io/badge/molecule-2.20.1-green.svg)
+![Goss](https://img.shields.io/badge/goss-0.3.7-green.svg)
 
 ## Versioning
 

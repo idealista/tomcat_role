@@ -6,5 +6,7 @@
       apt:
         pkg: ['net-tools']
         state: present
+      when:
+        - ansible_os_family == 'Debian'
   roles:
     - tomcat-role

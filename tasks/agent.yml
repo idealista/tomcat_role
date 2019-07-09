@@ -2,9 +2,8 @@
 
 - name: Tomcat agent installation | Install required packages
   apt:
-    pkg: "{{ item }}"
+    pkg: "{{ tomcat_agents_required_libs }}"
     state: present
-  with_items: '{{ tomcat_agents_required_libs }}'
 
 - name: Tomcat agent installation | Ensure install path
   file:

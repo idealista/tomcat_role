@@ -4,10 +4,7 @@
   pre_tasks:
     - name: Tomcat | Installing required dependencies
       apt:
-        pkg: "{{ item }}"
+        pkg: ['net-tools']
         state: present
-      with_items:
-        - net-tools
   roles:
-    - java
     - tomcat-role

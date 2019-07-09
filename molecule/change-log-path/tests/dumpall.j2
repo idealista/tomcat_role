@@ -1,1 +1,23 @@
-{{ vars | to_nice_yaml }} 
+---
+tomcat_http_connector_port: {{ tomcat_http_connector_port }}
+tomcat_shutdown_port: {{ tomcat_shutdown_port }}
+tomcat_user: {{ tomcat_user }}
+tomcat_group: {{ tomcat_group }}
+tomcat_webapps_path: {{ tomcat_webapps_path }}
+tomcat_pre_installed_folders_deployed:
+{% for key in tomcat_pre_installed_folders_deployed %}
+  {{ key }}:
+    deployed: {{ tomcat_pre_installed_folders_deployed[key].deployed }}
+{% endfor %}
+tomcat_conf_path: {{ tomcat_conf_path }}
+tomcat_download_wars: {{ tomcat_download_wars }}
+tomcat_war_to_deploy_urls:
+{% for item in tomcat_war_to_deploy_urls %}
+  - url: {{ item.url }}
+    name: {{ item.name }}
+{% endfor %}
+tomcat_install_path: {{ tomcat_install_path }}
+tomcat_version: {{ tomcat_version }}
+tomcat_logs_path: {{ tomcat_logs_path }}
+ansible_date_time:
+  date: {{ ansible_date_time.date }}

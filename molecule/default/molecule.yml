@@ -7,7 +7,6 @@ lint:
   name: yamllint
   options:
     config-file: .yamllint
-
 platforms:
   - name: tomcat
     groups:

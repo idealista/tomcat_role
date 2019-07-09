@@ -7,21 +7,23 @@ lint:
   name: yamllint
   options:
     config-file: .yamllint
-
 platforms:
   - name: tomcat
     groups:
       - tomcat
-    image: idealista/jdk:latest
+    image: ${DOCKER_IMAGE_BASE:-"idealista/jdk:latest"}
     privileged: true
     capabilities:
       - SYS_ADMIN
     volumes:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
     command: '/lib/systemd/systemd'
-
 provisioner:
   name: ansible
+  inventory:
+    group_vars:
+      tomcat:
+        tomcat_version: ${TOMCAT_VERSION:-8.5.42}
   lint:
     name: ansible-lint
 scenario:

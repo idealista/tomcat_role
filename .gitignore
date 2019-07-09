@@ -4,6 +4,8 @@ tests/__pycache__
 .molecule
 .cache
 .vagrant
+.project
+.pydevproject
 tests/roles
 *.iml
 .idea/

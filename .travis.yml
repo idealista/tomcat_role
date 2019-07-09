@@ -31,18 +31,13 @@ env:
       TOMCAT_VERSION=8.5.42
       DOCKER_TAG_TO_PUBLISH=tomcat-8.5.42-xenial-8u191
 
-    # https://packages.ubuntu.com/xenial/openjdk-9-jdk
-    - DOCKER_IMAGE_BASE=idealista/jdk:9b114-xenial-openjdk-headless
-      TOMCAT_VERSION=8.5.42
-      DOCKER_TAG_TO_PUBLISH=tomcat-8.5.42-xenial-9b114
-
     # Ubuntu Bionic
     # https://packages.ubuntu.com/bionic/openjdk-8-jdk
     - DOCKER_IMAGE_BASE=idealista/jdk:8u191-bionic-openjdk-headless
       TOMCAT_VERSION=8.5.42
       DOCKER_TAG_TO_PUBLISH=tomcat-8.5.42-bionic-8u191
 
-    # https://launchpad.net/ubuntu/+source/openjdk-lts
+    # https://launchpad.net/ubuntu/bionic/+source/openjdk-lts/+changelog
     - DOCKER_IMAGE_BASE=idealista/jdk:11.0.1-bionic-openjdk-headless
       TOMCAT_VERSION=8.5.42
       DOCKER_TAG_TO_PUBLISH=tomcat-8.5.42-bionic-11.0.1

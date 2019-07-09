@@ -5,7 +5,6 @@ java_implementation: openjdk
 
 tomcat_agents_required_libs:
   - unzip
-  - apt-transport-https
 
 tomcat_agents_config:
   - name: "newrelic"

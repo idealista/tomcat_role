@@ -2,9 +2,14 @@
 - name: Converge
   hosts: all
   pre_tasks:
-    - name: Tomcat | Installing required dependencies
+    - name: Tomcat | Installing required dependencies, for Debian and Ubuntu
       apt:
-        pkg: ['net-tools']
+        name: "{{ item }}"
         state: present
+      with_items:
+        - net-tools
+        - apt-transport-https
+      when:
+        - ansible_os_family == 'Debian'
   roles:
     - tomcat-role

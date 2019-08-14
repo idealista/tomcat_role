@@ -22,35 +22,35 @@ env:
     # Debian Jessie
     # https://packages.debian.org/jessie-backports/openjdk-8-jdk-headless
     - DOCKER_IMAGE_BASE=idealista/jdk:8u171-jessie-openjdk-headless
-      TOMCAT_VERSION=8.5.42
-      DOCKER_TAG_TO_PUBLISH=tomcat-8.5.42-jessie-8u171
+      TOMCAT_VERSION=9.0.22
+      DOCKER_TAG_TO_PUBLISH=tomcat-9.0.22-jessie-8u171
 
     # https://packages.debian.org/stretch/openjdk-8-jdk-headless
     - DOCKER_IMAGE_BASE=idealista/jdk:8u212-stretch-openjdk-headless
-      TOMCAT_VERSION=8.5.42
-      DOCKER_TAG_TO_PUBLISH=tomcat-8.5.42-stretch-8u212
+      TOMCAT_VERSION=9.0.22
+      DOCKER_TAG_TO_PUBLISH=tomcat-9.0.22-stretch-8u212
 
     # Ubuntu Xenial
     # https://packages.ubuntu.com/xenial/openjdk-8-jdk
     - DOCKER_IMAGE_BASE=idealista/jdk:8u191-xenial-openjdk-headless
-      TOMCAT_VERSION=8.5.42
-      DOCKER_TAG_TO_PUBLISH=tomcat-8.5.42-xenial-8u191
+      TOMCAT_VERSION=9.0.22
+      DOCKER_TAG_TO_PUBLISH=tomcat-9.0.22-xenial-8u191
 
     # Ubuntu Bionic
     # https://packages.ubuntu.com/bionic/openjdk-8-jdk
     - DOCKER_IMAGE_BASE=idealista/jdk:8u191-bionic-openjdk-headless
-      TOMCAT_VERSION=8.5.42
-      DOCKER_TAG_TO_PUBLISH=tomcat-8.5.42-bionic-8u191
+      TOMCAT_VERSION=9.0.22
+      DOCKER_TAG_TO_PUBLISH=tomcat-9.0.22-bionic-8u191
 
     # https://launchpad.net/ubuntu/bionic/+source/openjdk-lts/+changelog
     - DOCKER_IMAGE_BASE=idealista/jdk:11.0.1-bionic-openjdk-headless
-      TOMCAT_VERSION=8.5.42
-      DOCKER_TAG_TO_PUBLISH=tomcat-8.5.42-bionic-11.0.1
+      TOMCAT_VERSION=9.0.22
+      DOCKER_TAG_TO_PUBLISH=tomcat-9.0.22-bionic-11.0.1
 
     # CentOS 7/OpenJDK
     - DOCKER_IMAGE_BASE=idealista/jdk:11-centos-openjdk-headless
-      TOMCAT_VERSION=8.5.42
-      DOCKER_TAG_TO_PUBLISH=tomcat-8.5.42-centos-11
+      TOMCAT_VERSION=9.0.22
+      DOCKER_TAG_TO_PUBLISH=tomcat-9.0.22-centos-11
 
 script:
   - pipenv run molecule test --all

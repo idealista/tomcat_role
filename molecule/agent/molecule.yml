@@ -23,7 +23,7 @@ provisioner:
   inventory:
     group_vars:
       tomcat:
-        tomcat_version: ${TOMCAT_VERSION:-8.5.42}
+        tomcat_version: ${TOMCAT_VERSION}
   lint:
     name: ansible-lint
 scenario:

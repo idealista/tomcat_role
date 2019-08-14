@@ -44,7 +44,7 @@
   retries: 3
   delay: 3
   register: result
-  until: result.rc == 0
+  until: result is succeeded
   when: 'tomcat_force_reinstall or tomcat_check is failed or tomcat_check.stdout == "Apache Tomcat/tomcat_version"'
 
 - name: Tomcat | Copy Daemon script

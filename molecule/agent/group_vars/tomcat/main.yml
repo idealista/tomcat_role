@@ -2,6 +2,7 @@
 
 ## JAVA
 java_implementation: openjdk
+tomcat_version: "{{ lookup('env', 'TOMCAT_VERSION') }}"
 
 tomcat_agents_required_libs:
   - unzip

@@ -2,3 +2,4 @@
 
 ## JAVA
 java_implementation: openjdk
+tomcat_version: "{{ lookup('env', 'TOMCAT_VERSION') }}"

@@ -15,3 +15,5 @@ tomcat_agents_config:
       application_name: "application_sample_name",
       license_key: "sddsasd"
     }
+
+tomcat_logs_path: /var/log/tomcat

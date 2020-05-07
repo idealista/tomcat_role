@@ -11,9 +11,6 @@ RUN apt-get update && \
     apt-get install -y python sudo bash ca-certificates iproute2 systemd systemd-sysv python-pip && \
     apt-get clean
 
-# https://github.com/moby/moby/issues/28614#issuecomment-310581026
 STOPSIGNAL SIGRTMIN+3
 RUN systemctl set-default multi-user.target
 
-#
-RUN mkdir -p /usr/share/man/man1

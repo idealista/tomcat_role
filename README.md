@@ -1,6 +1,8 @@
 ![Logo](https://raw.githubusercontent.com/idealista/tomcat-role/master/logo.gif)
 
 [![Build Status](https://travis-ci.org/idealista/tomcat-role.svg?branch=master)](https://travis-ci.org/idealista/tomcat-role)
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-idealista.tomcat__role-B62682.svg)](https://galaxy.ansible.com/idealista/tomcat_role)
+
 # Tomcat Ansible role
 
 This ansible role installs a Tomcat server in a debian environment.
@@ -26,6 +28,7 @@ For compatible Ansible versions check [.travis.yml](.travis.yml).
 Inventory destination should be a Debian environment.
 
 For testing purposes, [Molecule](https://molecule.readthedocs.io/) with Docker as driver and [Goss](http://goss.rocks) as verifier
+We need a system with java previously installed, we recommend the use of our role for that purpose: [idealista.java-role](https://github.com/idealista/java_role)
 
 ### Installing
 
@@ -69,7 +72,8 @@ Look to the defaults properties file to see the possible configuration propertie
 ### Install dependencies
 
 ```sh
-pipenv install
+pipenv sync
+pipenv shell
 ```
 
 For more information read the [pipenv docs](https://docs.pipenv.org/).

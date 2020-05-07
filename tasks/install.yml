@@ -36,7 +36,7 @@
   unarchive:
     extra_opts: ['--strip-components=1']
     src: "{{ tomcat_url }}"
-    remote_src: yes
+    remote_src: true
     dest: "{{ tomcat_install_path }}"
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"

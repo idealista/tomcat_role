@@ -1,30 +1,31 @@
 ---
+
 dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
+lint: |
+  yamllint .
+  ansible-lint .
 
 platforms:
   - name: tomcat
     groups:
       - tomcat
-    image: idealista/java-role:latest
-    privileged: True
+    image: idealista/jdk:8u222-stretch-openjdk-headless
+    privileged: false
+    command: '/lib/systemd/systemd'
     capabilities:
       - SYS_ADMIN
     volumes:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
-    command: '/lib/systemd/systemd'
+    tmpfs:
+      - '/run'
+      - '/run/lock'
+      - '/tmp'
 
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
-scenario:
-  name: change-log-path
 verifier:
-  name: goss
-  lint:
-    name: flake8
+  name: ansible
+  directory: ./tests

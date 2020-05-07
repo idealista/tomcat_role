@@ -20,14 +20,11 @@ port:
     listening: true
 
 file:
-  /opt/tomcat/newrelic:
+  /var/log/tomcat:
     filetype: directory
     exists: true
     owner: tomcat
     group: tomcat
-  /opt/tomcat/newrelic/newrelic.yml:
+  /var/log/tomcat/catalina.out:
     exists: true
-  /opt/tomcat/bin/setagentenv.sh:
-    exists: true
-    contains:
-      - '-javaagent:/opt/tomcat/newrelic/newrelic.jar'
+

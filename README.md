@@ -84,11 +84,9 @@ See molecule/molecule.yml to check possible testing platforms.
 
 ## Works With
 
-![Ansible](https://img.shields.io/badge/ansible-2.4.0.0-green.svg)
-![Ansible](https://img.shields.io/badge/ansible-2.5.0.0-green.svg)
-![Ansible](https://img.shields.io/badge/ansible-2.6.2.0-green.svg)
-![Molecule](https://img.shields.io/badge/molecule-2.10.0-green.svg)
-![Goss](https://img.shields.io/badge/goss-0.3.5-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.8.6-green.svg)
+![Molecule](https://img.shields.io/badge/molecule-3.0.4-green.svg)
+![Goss](https://img.shields.io/badge/goss-0.3-11-green.svg)
 
 ## Versioning
 

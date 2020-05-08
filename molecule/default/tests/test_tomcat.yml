@@ -20,6 +20,8 @@ port:
     listening: true
   tcp:8005:
     listening: true
+  tcp:8009:
+    listening: true
 
 file:
   /opt/tomcat/newrelic:

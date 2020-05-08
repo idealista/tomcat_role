@@ -40,7 +40,7 @@ file:
     group: tomcat
   /var/log/tomcat/catalina.out:
     exists: true
-    /opt/tomcat/webapps/docs:
+  /opt/tomcat/webapps/docs:
     exists: true
   /opt/tomcat/webapps/examples:
     exists: true

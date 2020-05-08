@@ -28,7 +28,7 @@ For compatible Ansible versions check [.travis.yml](.travis.yml).
 Inventory destination should be a Debian environment.
 
 For testing purposes, [Molecule](https://molecule.readthedocs.io/) with Docker as driver and [Goss](http://goss.rocks) as verifier
-We need a system with java previously installed, we recommend the use of our role for that purpose: [idealista.java-role](https://github.com/idealista/java_role)
+This role needs a system with java previously installed. Its really recommended the use of idealista's java role for that purpose: [idealista.java-role](https://github.com/idealista/java_role)
 
 ### Installing
 

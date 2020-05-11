@@ -1,0 +1,66 @@
+---
+
+service:
+  tomcat:
+    enabled: true
+    running: true
+
+user:
+  tomcat:
+    exists: true
+    groups:
+      - tomcat
+
+group:
+  tomcat:
+    exists: true
+
+port:
+  tcp:8080:
+    listening: true
+  tcp:8005:
+    listening: true
+  tcp:8009:
+    listening: true
+
+file:
+  /opt/tomcat/newrelic:
+    filetype: directory
+    exists: true
+    owner: tomcat
+    group: tomcat
+  /opt/tomcat/newrelic/newrelic.yml:
+    exists: true
+  /opt/tomcat/bin/setagentenv.sh:
+    exists: true
+    contains:
+      - '-javaagent:/opt/tomcat/newrelic/newrelic.jar'
+  /var/log/tomcat:
+    filetype: directory
+    exists: true
+    owner: tomcat
+    group: tomcat
+  /var/log/tomcat/catalina.out:
+    exists: true
+  /opt/tomcat/webapps/docs:
+    exists: true
+  /opt/tomcat/webapps/examples:
+    exists: true
+  /opt/tomcat/webapps/manager:
+    exists: true
+  /opt/tomcat/webapps/host-manager:
+    exists: true
+  /opt/tomcat/webapps/ROOT:
+    exists: true
+  /opt/tomcat/conf/test/test_file.xml:
+    exists: true
+  /opt/tomcat/conf/test/test_template.xml:
+    exists: true
+  /opt/tomcat/webapps/sample.war:
+    exists: true
+
+command:
+  java -cp /opt/tomcat/lib/catalina.jar org.apache.catalina.util.ServerInfo | grep 'Server version':
+    exit-status: 0
+    stdout:
+      - "9.0.34"

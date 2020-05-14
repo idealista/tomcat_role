@@ -100,7 +100,7 @@ tomcat_default_log_logging_path: "${catalina.base}/logs"
 tomcat_default_log_valves: "logs"
 
 ## Agent configuration (optional)
-
+tomcat_agents_force_reinstall: false
 # tomcat_agents_required_libs:
 #  - unzip
 #  - apt-transport-https
@@ -108,6 +108,7 @@ tomcat_default_log_valves: "logs"
 # tomcat_agents_config:
 #   - name: "agent_name"
 #     download_url: "download_url"
+#     version: "x.x.x"
 #     catalina_opts:
 #       - '-javaagent:{{ tomcat_install_path }}/agent_name/agent_file'
 #     configuration_files:

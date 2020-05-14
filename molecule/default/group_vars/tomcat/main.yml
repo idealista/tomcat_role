@@ -7,6 +7,7 @@ tomcat_agents_required_libs:
 tomcat_agents_config:
   - name: "newrelic"
     download_url: "http://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-java.zip"
+    version: "5.11.0"
     catalina_opts:
       - '-javaagent:{{ tomcat_install_path }}/newrelic/newrelic.jar'
     configuration_files:

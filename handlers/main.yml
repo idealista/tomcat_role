@@ -1,5 +1,5 @@
 ---
-# handlers file for tomcat-role
+# handlers file for tomcat_role
 
 - name: restart tomcat
   systemd:

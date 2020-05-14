@@ -1,6 +1,6 @@
-![Logo](https://raw.githubusercontent.com/idealista/tomcat-role/master/logo.gif)
+![Logo](https://raw.githubusercontent.com/idealista/tomcat_role/master/logo.gif)
 
-[![Build Status](https://travis-ci.org/idealista/tomcat-role.svg?branch=master)](https://travis-ci.org/idealista/tomcat-role)
+[![Build Status](https://travis-ci.org/idealista/tomcat_role.svg?branch=master)](https://travis-ci.org/idealista/tomcat_role)
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-idealista.tomcat__role-B62682.svg)](https://galaxy.ansible.com/idealista/tomcat_role)
 
 # Tomcat Ansible role
@@ -35,16 +35,16 @@ This role needs a system with java previously installed. Its really recommended 
 Create or add to your roles dependency file (e.g requirements.yml) from GitHub:
 
 ```
-- src: http://github.com/idealista/tomcat-role.git
+- src: http://github.com/idealista/tomcat_role.git
   scm: git
   version: 1.0.0
   name: tomcat
 ```
 
-or using [Ansible Galaxy](https://galaxy.ansible.com/idealista/tomcat-role/) as origin if you prefer:
+or using [Ansible Galaxy](https://galaxy.ansible.com/idealista/tomcat_role/) as origin if you prefer:
 
 ```
-- src: idealista.tomcat-role
+- src: idealista.tomcat_role
   version: 1.0.0
   name: tomcat
 ```
@@ -94,7 +94,7 @@ See molecule/molecule.yml to check possible testing platforms.
 
 ## Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/idealista/tomcat-role/tags).
+For the versions available, see the [tags on this repository](https://github.com/idealista/tomcat_role/tags).
 
 Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGELOG.md) file.
 
@@ -102,7 +102,7 @@ Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGE
 
 * **Idealista** - *Work with* - [idealista](https://github.com/idealista)
 
-See also the list of [contributors](https://github.com/idealista/Tomcat-role/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/idealista/tomcat_role/contributors) who participated in this project.
 
 ## License
 

@@ -30,8 +30,6 @@
   with_subelements:
     - "{{ tomcat_agents_config }}"
     - catalina_opts
-- debug:
-    msg: "mierduza extrema  {{ agent_version_checked }} "
 
 - name: Tomcat | agent installation | Download agent
   get_url:

@@ -63,4 +63,4 @@ command:
   java -cp /opt/tomcat/lib/catalina.jar org.apache.catalina.util.ServerInfo | grep 'Server version':
     exit-status: 0
     stdout:
-      - "9.0.34"
+      - "{{ tomcat_version }}"

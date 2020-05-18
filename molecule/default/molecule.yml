@@ -26,6 +26,10 @@ platforms:
 
 provisioner:
   name: ansible
+  inventory:
+    group_vars:
+      tomcat:
+        tomcat_version: ${TOMCAT_VERSION}
 verifier:
   name: ansible
   directory: ./tests

@@ -21,6 +21,11 @@ This ansible role installs a Tomcat server in a debian environment.
 ## Getting Started
 
 These instructions will get you a copy of the role for your ansible playbook. Once launched, it will install a [Tomcat](https://tomcat.apache.org/) server in a Debian system.
+Supported tomcat versions:
+- 7.x
+- 8.x
+- 8.5.x
+- 9.x
 
 ### Prerequisities
 
@@ -90,7 +95,7 @@ See molecule/molecule.yml to check possible testing platforms.
 
 ![Ansible](https://img.shields.io/badge/ansible-2.8.6-green.svg)
 ![Molecule](https://img.shields.io/badge/molecule-3.0.4-green.svg)
-![Goss](https://img.shields.io/badge/goss-0.3-11-green.svg)
+![Goss](https://img.shields.io/badge/goss-0.3.11-green.svg)
 
 ## Versioning
 

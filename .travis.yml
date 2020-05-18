@@ -8,8 +8,13 @@ services:
 install:
   - pip install pipenv
   - pipenv sync
+env:
+  jobs:
+  - TOMCAT_VERSION=9.0.35
+  - TOMCAT_VERSION=8.5.55
+  - TOMCAT_VERSION=7.0.104
 script:
-  - pipenv run molecule test --all
+  - pipenv run molecule test
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

@@ -13,7 +13,6 @@ env:
   - TOMCAT_VERSION=9.0.35
   - TOMCAT_VERSION=8.5.55
   - TOMCAT_VERSION=7.0.104
-  - TOMCAT_VERSION=10.0.0-M5
 script:
   - pipenv run molecule test
 

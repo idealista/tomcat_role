@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 - *[#61](https://github.com/idealista/tomcat_role/issues/61) Update molecule to 3.x* @sorobon
 - *[#63](https://github.com/idealista/tomcat_role/issues/63) Rename role to tomcat_role* @sorobon
 - *[#66](https://github.com/idealista/tomcat_role/issues/66) Improve agents management* @sorobon
+- *[#64](https://github.com/idealista/tomcat_role/issues/64) Adding testing scenarios for tomcat 7.x and 8.x* @sorobon
 
 ## [1.8.0](https://github.com/idealista/tomcat_role/tree/1.8.0)
 [Full Changelog](https://github.com/idealista/tomcat_role/compare/1.7.0...1.8.0)

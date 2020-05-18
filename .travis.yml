@@ -9,7 +9,7 @@ install:
   - pip install pipenv
   - pipenv sync
 env:
-  matrix:
+  jobs:
   - TOMCAT_VERSION=9.0.35
   - TOMCAT_VERSION=8.5.55
   - TOMCAT_VERSION=7.0.104

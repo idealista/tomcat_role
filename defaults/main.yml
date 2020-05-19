@@ -99,6 +99,11 @@ tomcat_default_log_catalina_out: '"$CATALINA_BASE"/logs'
 tomcat_default_log_logging_path: "${catalina.base}/logs"
 tomcat_default_log_valves: "logs"
 
+tomcat_memlock_limit: "unlimited"
+tomcat_nofile_limit: 100000
+tomcat_as_limit: "unlimited"
+tomcat_nproc_limit: 8096
+
 ## Agent configuration (optional)
 tomcat_agents_force_reinstall: false
 # tomcat_agents_required_libs:

@@ -1,21 +1,20 @@
 ---
+
 language: python
-python: "2.7.13"
-sudo: required
-
-env:
-  - ansible_version: 2.4.0.0
-  - ansible_version: 2.5.0.0
-  - ansible_version: 2.6.2.0
-
+python: "3.7"
+os: linux
 services:
   - docker
-
 install:
-  - pip install ansible==${ansible_version}
-  - pip install -r test-requirements.txt
+  - pip install pipenv
+  - pipenv sync
+env:
+  jobs:
+  - TOMCAT_VERSION=9.0.35
+  - TOMCAT_VERSION=8.5.55
+  - TOMCAT_VERSION=7.0.104
 script:
-  - molecule test --all
+  - pipenv run molecule test
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

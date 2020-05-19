@@ -1,7 +1,8 @@
 ---
+
 ## General
 
-tomcat_version: 8.5.31
+tomcat_version: 9.0.35
 
 ## Service options
 
@@ -10,7 +11,7 @@ tomcat_user: tomcat
 tomcat_group: tomcat
 
 # start on boot
-tomcat_service_enabled: yes
+tomcat_service_enabled: true
 # current state: started, stopped
 tomcat_service_state: started
 
@@ -98,8 +99,13 @@ tomcat_default_log_catalina_out: '"$CATALINA_BASE"/logs'
 tomcat_default_log_logging_path: "${catalina.base}/logs"
 tomcat_default_log_valves: "logs"
 
-## Agent configuration (optional)
+tomcat_memlock_limit: "unlimited"
+tomcat_nofile_limit: 100000
+tomcat_as_limit: "unlimited"
+tomcat_nproc_limit: 8096
 
+## Agent configuration (optional)
+tomcat_agents_force_reinstall: false
 # tomcat_agents_required_libs:
 #  - unzip
 #  - apt-transport-https
@@ -107,6 +113,7 @@ tomcat_default_log_valves: "logs"
 # tomcat_agents_config:
 #   - name: "agent_name"
 #     download_url: "download_url"
+#     version: "x.x.x"
 #     catalina_opts:
 #       - '-javaagent:{{ tomcat_install_path }}/agent_name/agent_file'
 #     configuration_files:

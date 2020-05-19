@@ -1,6 +1,6 @@
 ---
+
 - name: Converge
   hosts: all
   roles:
-    - java
-    - tomcat-role
+    - role: tomcat_role

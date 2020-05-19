@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-ansible = "==2.8.6"
+ansible = "==2.8.8"
 molecule = "==3.0.4"
 docker = "==4.1.0"
 jmespath = "==0.9.4"

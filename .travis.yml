@@ -19,9 +19,6 @@ env:
   - DOCKER_IMAGE_BASE=idealista/jdk:11.0.6-stretch-openjdk-headless TOMCAT_VERSION=9.0.35
   - DOCKER_IMAGE_BASE=idealista/jdk:11.0.6-stretch-openjdk-headless TOMCAT_VERSION=8.5.55
   - DOCKER_IMAGE_BASE=idealista/jdk:11.0.6-stretch-openjdk-headless TOMCAT_VERSION=7.0.104
-  - DOCKER_IMAGE_BASE=idealista/jdk:8u171-jessie-openjdk-headless TOMCAT_VERSION=9.0.35
-  - DOCKER_IMAGE_BASE=idealista/jdk:8u171-jessie-openjdk-headless TOMCAT_VERSION=8.5.55
-  - DOCKER_IMAGE_BASE=idealista/jdk:8u171-jessie-openjdk-headless TOMCAT_VERSION=7.0.104
   - DOCKER_IMAGE_BASE=idealista/jdk:8u252-focal-openjdk-headless TOMCAT_VERSION=9.0.35
   - DOCKER_IMAGE_BASE=idealista/jdk:8u252-focal-openjdk-headless TOMCAT_VERSION=8.5.55
   - DOCKER_IMAGE_BASE=idealista/jdk:8u252-focal-openjdk-headless TOMCAT_VERSION=7.0.104

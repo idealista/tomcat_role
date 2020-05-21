@@ -29,7 +29,6 @@ Supported tomcat versions:
 
 Supported OS:
 - Debian:
-  - Jessie
   - Stretch
   - Buster
 - Ubuntu

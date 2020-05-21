@@ -8,7 +8,7 @@ FROM {{ item.image }}
 
 # install minimal packages for debian slim images
 RUN apt-get update && \
-    apt-get install -y python sudo bash ca-certificates iproute2 systemd systemd-sysv && \
+    DEBIAN_FRONTEND="noninteractive" apt-get install -y -q python3 sudo bash ca-certificates iproute2 systemd systemd-sysv && \
     apt-get clean
 
 STOPSIGNAL SIGRTMIN+3

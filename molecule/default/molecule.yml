@@ -12,7 +12,7 @@ platforms:
   - name: tomcat
     groups:
       - tomcat
-    image: idealista/jdk:8u222-stretch-openjdk-headless
+    image: ${DOCKER_IMAGE_BASE:-idealista/jdk:8u252-stretch-openjdk-headless}
     privileged: false
     command: '/lib/systemd/systemd'
     capabilities:
@@ -29,7 +29,7 @@ provisioner:
   inventory:
     group_vars:
       tomcat:
-        tomcat_version: ${TOMCAT_VERSION}
+        tomcat_version: ${TOMCAT_VERSION:-9.0.35}
 verifier:
   name: ansible
   directory: ./tests

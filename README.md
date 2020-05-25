@@ -27,6 +27,13 @@ Supported tomcat versions:
 - 8.5.x
 - 9.x
 
+Supported OS:
+- Debian:
+  - Stretch
+  - Buster
+- Ubuntu
+  - Focal
+
 ### Prerequisities
 
 For compatible Ansible versions check [.travis.yml](.travis.yml).

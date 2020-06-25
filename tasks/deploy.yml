@@ -60,6 +60,8 @@
     validate_certs: false
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
+    username: "{{ item.url_username | default(omit) }}"
+    password: "{{ item.url_password | default(omit) }}"
   with_items: "{{ tomcat_war_to_deploy_urls }}"
   when: tomcat_download_wars
 

@@ -68,7 +68,7 @@
     -->
     <Connector port="{{ tomcat_http_connector_port }}" protocol="HTTP/1.1"
                connectionTimeout="{{ tomcat_http_connector_connection_timeout }}"
-               redirectPort="{{ tomcat_connector_redirect_port }}" />
+               redirectPort="{{ tomcat_connector_redirect_port }}" maxHttpHeaderSize="{{ tomcat_max_http_header_size }}" />
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"

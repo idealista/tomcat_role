@@ -2,7 +2,7 @@
 
 - name: Tomcat | Install download war from maven require package
   apt:
-    package: "['python-lxml']"
+    package: "python-lxml"
     state: present
   notify: restart tomcat
   when: tomcat_download_from_maven_wars

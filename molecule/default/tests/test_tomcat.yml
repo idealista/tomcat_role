@@ -58,6 +58,8 @@ file:
     exists: true
   /opt/tomcat/webapps/sample.war:
     exists: true
+  /opt/tomcat/webapps/hello-servlet.war:
+    exists: true
 
 command:
   java -cp /opt/tomcat/lib/catalina.jar org.apache.catalina.util.ServerInfo | grep 'Server version':

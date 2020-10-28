@@ -18,3 +18,21 @@ tomcat_agents_config:
     }
 
 tomcat_logs_path: /var/log/tomcat
+
+tomcat_download_from_maven_wars: true
+tomcat_war_to_deploy_from_maven:
+  - name: hello-servlet.war
+    group_id: "io.fabric8.jube.images.examples"
+    artifact_id: "hello-servlet"
+    extension: "war"
+    repository_url: "https://repo.maven.apache.org/maven2/"
+    # If using Ansible 2.6 or newer, this is settable as well
+    # verify_checksum: always
+
+tomcat_download_wars: true
+tomcat_war_to_deploy_urls:
+  - url: https://tomcat.apache.org/tomcat-8.5-doc/appdev/sample/sample.war
+    name: sample.war
+tomcat_local_wars: false
+tomcat_war_to_deploy_path:
+  - "{{ playbook_dir }}/sample.war"

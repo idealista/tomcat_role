@@ -2,9 +2,8 @@
 
 - name: Tomcat | agent installation | Install required packages
   apt:
-    pkg: "{{ item }}"
+    pkg: "{{ tomcat_agents_required_libs }}"
     state: present
-  with_items: '{{ tomcat_agents_required_libs }}'
 
 - name: Tomcat | agent installation | Ensure install path
   file:
@@ -37,6 +36,7 @@
     url: "{{ item.download_url }}"
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
+    mode: '666'
   register: agent_downloaded
   loop: "{{ tomcat_agents_config|flatten(levels=1) }}"
   loop_control:

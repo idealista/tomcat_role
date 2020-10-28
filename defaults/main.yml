@@ -68,7 +68,7 @@ tomcat_war_to_deploy_from_maven:
     # If using Ansible 2.6 or newer, this is settable as well
     # verify_checksum: always
 
-tomcat_download_wars: true
+tomcat_download_wars: false
 tomcat_war_to_deploy_urls:
   - url: https://tomcat.apache.org/tomcat-8.5-doc/appdev/sample/sample.war
     name: sample.war

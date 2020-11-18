@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 ## [Unreleased](https://github.com/idealista/tomcat_role/tree/develop)
 - * Allow the option to change maxHttpHeaderSize value
 
+## [1.9.1](https://github.com/idealista/tomcat_role/tree/1.9.1)
+[Full Changelog](https://github.com/idealista/tomcat_role/compare/1.9.0...1.9.1)
+### Changed
+- *[#81](https://github.com/idealista/tomcat_role/issues/81) Add support to ansible 2.9* @sorobon
+
 ## [1.9.0](https://github.com/idealista/tomcat_role/tree/1.9.0)
 [Full Changelog](https://github.com/idealista/tomcat_role/compare/1.8.0...1.9.0)
 ### Changed

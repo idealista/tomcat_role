@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 ## [Unreleased](https://github.com/idealista/tomcat_role/tree/develop)
 ### Fixed
 - *[#88](https://github.com/idealista/tomcat_role/issues/88) Systemd security default limits fixed* @ftsao
+- *Updated test dependencies* @ftsao
 
 ## [1.9.1](https://github.com/idealista/tomcat_role/tree/1.9.1)
 [Full Changelog](https://github.com/idealista/tomcat_role/compare/1.9.0...1.9.1)

@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 ### Fixed
 - *[#88](https://github.com/idealista/tomcat_role/issues/88) Systemd security default limits fixed* @ftsao
 - *Updated test dependencies* @ftsao
+- *Force using python3 interpreter in tests; replaced python-lxml by python3-lxml dependency in managed nodes* @ftsao
 
 ## [1.9.1](https://github.com/idealista/tomcat_role/tree/1.9.1)
 [Full Changelog](https://github.com/idealista/tomcat_role/compare/1.9.0...1.9.1)

@@ -2,7 +2,7 @@
 
 ## General
 
-tomcat_version: 9.0.35
+tomcat_version: 9.0.39
 
 ## Service options
 
@@ -69,7 +69,7 @@ tomcat_war_to_deploy_from_maven:
     # If using Ansible 2.6 or newer, this is settable as well
     # verify_checksum: always
 
-tomcat_download_wars: true
+tomcat_download_wars: false
 tomcat_war_to_deploy_urls:
   - url: https://tomcat.apache.org/tomcat-8.5-doc/appdev/sample/sample.war
     name: sample.war
@@ -100,9 +100,9 @@ tomcat_default_log_catalina_out: '"$CATALINA_BASE"/logs'
 tomcat_default_log_logging_path: "${catalina.base}/logs"
 tomcat_default_log_valves: "logs"
 
-tomcat_memlock_limit: "unlimited"
+tomcat_memlock_limit: "infinity"
 tomcat_nofile_limit: 100000
-tomcat_as_limit: "unlimited"
+tomcat_as_limit: "infinity"
 tomcat_nproc_limit: 8096
 
 ## Agent configuration (optional)

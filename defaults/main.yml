@@ -27,6 +27,7 @@ tomcat_extra_conf_template_path: "{{ playbook_dir }}/templates/tomcat/conf"
 
 ## Miscellaneous
 tomcat_force_reinstall: false
+tomcat_max_http_header_size: 8192
 
 ## Ports
 tomcat_shutdown_port: 8005

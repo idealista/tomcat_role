@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/tomcat_role/tree/develop)
+### Changed
+- * Allow the option to change maxHttpHeaderSize value
 ### Fixed
 - *[#88](https://github.com/idealista/tomcat_role/issues/88) Systemd security default limits fixed* @ftsao
 - *Updated test dependencies* @ftsao

@@ -4,6 +4,8 @@
   apt:
     pkg: "{{ tomcat_agents_required_libs }}"
     state: present
+    update_cache: yes
+  when: tomcat_agents_required_libs is defined
 
 - name: Tomcat | agent installation | Ensure install path
   file:
@@ -41,8 +43,11 @@
   loop: "{{ tomcat_agents_config|flatten(levels=1) }}"
   loop_control:
     index_var: index
-  when: tomcat_agents_force_reinstall or not agent_file_exists.results[index].stat.exists or item.version != agent_version_checked.results[index].stdout or agent_version_checked.results[index].failed
-
+  when: >
+   item.download_url | basename | splitext | last in tomcat_supported_agents_extensions and
+    (tomcat_agents_force_reinstall or not
+    agent_file_exists.results[index].stat.exists or
+    item.version != agent_version_checked.results[index].stdout)
 
 - name: Tomcat | agent installation | Unarchive package
   unarchive:
@@ -52,10 +57,20 @@
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
     mode: 0755
-  when: agent_downloaded.changed
+  when: item.download_url | basename | splitext | last in tomcat_supported_agents_extensions and agent_downloaded.changed
   with_items: '{{ tomcat_agents_config }}'
   tags:
     - skip_ansible_lint
+
+- name: Tomcat | agent installation | Download agent jar
+  get_url:
+    dest: "{{ tomcat_install_path }}/{{ item.name }}"
+    url: "{{ item.download_url }}"
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+  loop: '{{ tomcat_agents_config | flatten(levels=1) }}'
+  register: agent_jar_downloaded
+  when: item.download_url | basename | splitext | last not in tomcat_supported_agents_extensions
 
 - name: Tomcat | agent installation | Copy version number file
   template:

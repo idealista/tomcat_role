@@ -2,7 +2,7 @@
 
 - name: Tomcat | Install download war from maven require package
   apt:
-    package: "python-lxml"
+    package: "python3-lxml"
     state: present
   notify: restart tomcat
   when: tomcat_download_from_maven_wars
@@ -58,6 +58,8 @@
     validate_certs: false
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
+    username: "{{ item.url_username | default(omit) }}"
+    password: "{{ item.url_password | default(omit) }}"
   with_items: "{{ tomcat_war_to_deploy_urls }}"
   when: tomcat_download_wars
 

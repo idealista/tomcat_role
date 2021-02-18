@@ -2,7 +2,7 @@
 
 ## General
 
-tomcat_version: 9.0.39
+tomcat_version: 9.0.43
 
 ## Service options
 
@@ -27,6 +27,7 @@ tomcat_extra_conf_template_path: "{{ playbook_dir }}/templates/tomcat/conf"
 
 ## Miscellaneous
 tomcat_force_reinstall: false
+tomcat_max_http_header_size: 8192
 
 ## Ports
 tomcat_shutdown_port: 8005
@@ -99,9 +100,9 @@ tomcat_default_log_catalina_out: '"$CATALINA_BASE"/logs'
 tomcat_default_log_logging_path: "${catalina.base}/logs"
 tomcat_default_log_valves: "logs"
 
-tomcat_memlock_limit: "unlimited"
+tomcat_memlock_limit: "infinity"
 tomcat_nofile_limit: 100000
-tomcat_as_limit: "unlimited"
+tomcat_as_limit: "infinity"
 tomcat_nproc_limit: 8096
 
 ## Agent configuration (optional)

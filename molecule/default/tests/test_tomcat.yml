@@ -35,6 +35,12 @@ file:
     exists: true
     contains:
       - '-javaagent:/opt/tomcat/newrelic/newrelic.jar'
+  /opt/tomcat/datadog/dd-java-agent-0.73.0.jar:
+    exists: true
+  /opt/tomcat/bin/setagentenv.sh:
+    exists: true
+    contains:
+      - '-javaagent:/opt/tomcat/datadog/dd-java-agent-0.73.0.jar -Ddd.profiling.enabled=true -Ddd.logs.injection=true -Ddd.service=sample -Ddd.env=molecule'
   /var/log/tomcat:
     filetype: directory
     exists: true

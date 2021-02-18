@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/tomcat_role/tree/develop)
+### Added
+- *[#91](https://github.com/idealista/tomcat_role/issues/91) Add support for downloaded agents as jar instead of compressed file* @sorobon
 ### Changed
 - * Allow the option to change maxHttpHeaderSize value
 ### Fixed

@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/tomcat_role/tree/develop)
+### Fixed
+- *Fix tomcat_version variable usage in "Download & Extract Tomcat" task* @agimenez
 
 
 ## [1.10.0](https://github.com/idealista/tomcat_role/tree/1.10.0)

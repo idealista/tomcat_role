@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/tomcat_role/tree/develop)
 ### Fixed
-- *Fix tomcat_version variable usage in "Download & Extract Tomcat" task* @agimenez
+- *Fix tomcat_version variable usage and conditional in "Download & Extract Tomcat" task* @agimenez
 - *Fix check mode for task Check Tomcat version* @agimenez
 
 

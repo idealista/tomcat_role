@@ -42,7 +42,7 @@
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
     mode: 0750
-  when: 'tomcat_force_reinstall or tomcat_check is failed or tomcat_check.stdout != "Apache Tomcat/{{ tomcat_version }}"'
+  when: tomcat_force_reinstall or tomcat_check is failed or tomcat_version not in tomcat_check.stdout
 
 - name: Tomcat | Copy Daemon script
   template:

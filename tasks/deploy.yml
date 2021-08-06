@@ -72,3 +72,15 @@
     group: "{{ tomcat_group }}"
   with_items: "{{ tomcat_war_to_deploy_path }}"
   when: tomcat_local_wars
+
+- name: Tomcat | Download extra jars
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ tomcat_lib_path }}/{{ item.name }}"
+    mode: 0755
+    validate_certs: false
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+  with_items: "{{ tomcat_jar_to_deploy_urls }}"
+  notify: restart tomcat
+  when: tomcat_download_jars

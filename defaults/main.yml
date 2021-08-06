@@ -17,6 +17,7 @@ tomcat_service_state: started
 
 # Files & Paths
 tomcat_install_path: "/opt/tomcat"
+tomcat_lib_path: "{{ tomcat_install_path }}/lib"
 tomcat_bin_path: "{{ tomcat_install_path }}/bin"
 tomcat_conf_path: "{{ tomcat_install_path }}/conf"
 tomcat_webapps_path: "{{ tomcat_install_path }}/webapps"
@@ -69,6 +70,9 @@ tomcat_war_to_deploy_from_maven:
     repository_url: "http://amavenrepository/any"
     # If using Ansible 2.6 or newer, this is settable as well
     # verify_checksum: always
+
+tomcat_download_jars: false
+tomcat_jar_to_deploy_urls: []
 
 tomcat_download_wars: false
 tomcat_war_to_deploy_urls:

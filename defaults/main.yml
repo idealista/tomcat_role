@@ -43,6 +43,7 @@ tomcat_connector_redirect_port: 8443
 tomcat_catalina_opts:
   - -Xms512m
   - -Xmx512m
+  - -Dlog4j2.formatMsgNoLookups=true
 
 tomcat_environment_vars:
   - name: UMASK

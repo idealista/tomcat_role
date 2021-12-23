@@ -51,14 +51,14 @@
 
 - name: Tomcat | agent installation | Unarchive package
   unarchive:
-    src: "/tmp/{{ item.download_url | basename }}"
+    src: "/tmp/{{ item.url | basename }}"
     dest: "{{ tomcat_install_path }}"
     remote_src: true
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
     mode: 0755
-  when: item.download_url | basename | splitext | last in tomcat_supported_agents_extensions and agent_downloaded.changed
-  with_items: '{{ tomcat_agents_config }}'
+  when: item.changed and item.url | basename | splitext | last in tomcat_supported_agents_extensions
+  with_items: '{{ agent_downloaded.results }}'
   tags:
     - skip_ansible_lint
 

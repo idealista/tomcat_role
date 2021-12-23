@@ -4,6 +4,14 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/tomcat_role/tree/develop)
 
+
+## [1.10.2](https://github.com/idealista/tomcat_role/tree/1.10.2)
+[Full Changelog](https://github.com/idealista/tomcat_role/compare/1.10.1...1.10.2)
+### Added
+- *[#111](https://github.com/idealista/tomcat_role/issues/111) Set log4j formatMsgNoLookups flag by default* @blalop
+### Fixed
+- *[#109](https://github.com/idealista/tomcat_role/issues/109) Agents installation logic fix* @blalop
+
 ## [1.10.1](https://github.com/idealista/tomcat_role/tree/1.10.1)
 [Full Changelog](https://github.com/idealista/tomcat_role/compare/1.10.0...1.10.1)
 ### Fixed

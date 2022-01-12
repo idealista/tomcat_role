@@ -137,7 +137,7 @@
                prefix="localhost_access_log" suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />
         
-        {% if tomcat_show_server_info_on_error_page == false %}
+        {% if not tomcat_show_server_info_on_error_page %}
           <Valve className="org.apache.catalina.valves.ErrorReportValve" showReport="false" showServerInfo="false"/>
         {% endif %}
         

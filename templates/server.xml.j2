@@ -136,7 +136,11 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="{{ path }}"
                prefix="localhost_access_log" suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />
-
+        
+        {% if not tomcat_show_server_info_on_error_page %}
+          <Valve className="org.apache.catalina.valves.ErrorReportValve" showReport="false" showServerInfo="false"/>
+        {% endif %}
+        
       </Host>
     </Engine>
   </Service>

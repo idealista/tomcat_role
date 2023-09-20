@@ -10,21 +10,21 @@ install:
   - pipenv sync
 env:
   jobs:
-  - DOCKER_IMAGE_BASE=idealista/jdk:8u252-stretch-openjdk-headless TOMCAT_VERSION=9.0.43
-  - DOCKER_IMAGE_BASE=idealista/jdk:8u252-stretch-openjdk-headless TOMCAT_VERSION=8.5.63
-  - DOCKER_IMAGE_BASE=idealista/jdk:8u252-stretch-openjdk-headless TOMCAT_VERSION=7.0.108
-  - DOCKER_IMAGE_BASE=idealista/jdk:11.0.12-buster-openjdk-headless TOMCAT_VERSION=9.0.43
-  - DOCKER_IMAGE_BASE=idealista/jdk:11.0.12-buster-openjdk-headless TOMCAT_VERSION=8.5.63
-  - DOCKER_IMAGE_BASE=idealista/jdk:11.0.12-buster-openjdk-headless TOMCAT_VERSION=7.0.108
-  - DOCKER_IMAGE_BASE=idealista/jdk:11.0.6-stretch-openjdk-headless TOMCAT_VERSION=9.0.43
-  - DOCKER_IMAGE_BASE=idealista/jdk:11.0.6-stretch-openjdk-headless TOMCAT_VERSION=8.5.63
-  - DOCKER_IMAGE_BASE=idealista/jdk:11.0.6-stretch-openjdk-headless TOMCAT_VERSION=7.0.108
-  - DOCKER_IMAGE_BASE=idealista/jdk:8u265-focal-openjdk-headless TOMCAT_VERSION=9.0.43
-  - DOCKER_IMAGE_BASE=idealista/jdk:8u265-focal-openjdk-headless TOMCAT_VERSION=8.5.63
-  - DOCKER_IMAGE_BASE=idealista/jdk:8u265-focal-openjdk-headless TOMCAT_VERSION=7.0.108
-  - DOCKER_IMAGE_BASE=idealista/jdk:14.0.1-focal-openjdk-headless TOMCAT_VERSION=9.0.43
-  - DOCKER_IMAGE_BASE=idealista/jdk:14.0.1-focal-openjdk-headless TOMCAT_VERSION=8.5.63
-  - DOCKER_IMAGE_BASE=idealista/jdk:14.0.1-focal-openjdk-headless TOMCAT_VERSION=7.0.108
+  - DOCKER_IMAGE_BASE=idealista/jdk:8u382-bullseye-temurin-jdk TOMCAT_VERSION=9.0.43
+  - DOCKER_IMAGE_BASE=idealista/jdk:8u382-bullseye-temurin-jdk TOMCAT_VERSION=8.5.63
+  - DOCKER_IMAGE_BASE=idealista/jdk:8u382-bullseye-temurin-jdk TOMCAT_VERSION=7.0.108
+  - DOCKER_IMAGE_BASE=idealista/jdk:11.0.20-buster-temurin-jdk TOMCAT_VERSION=9.0.43
+  - DOCKER_IMAGE_BASE=idealista/jdk:11.0.20-buster-temurin-jdk TOMCAT_VERSION=8.5.63
+  - DOCKER_IMAGE_BASE=idealista/jdk:11.0.20-buster-temurin-jdk TOMCAT_VERSION=7.0.108
+  - DOCKER_IMAGE_BASE=idealista/jdk:11.0.20-bullseye-temurin-jdk TOMCAT_VERSION=9.0.43
+  - DOCKER_IMAGE_BASE=idealista/jdk:11.0.20-bullseye-temurin-jdk TOMCAT_VERSION=8.5.63
+  - DOCKER_IMAGE_BASE=idealista/jdk:11.0.20-bullseye-temurin-jdk TOMCAT_VERSION=7.0.108
+  - DOCKER_IMAGE_BASE=idealista/jdk:8u382-focal-temurin-jdk TOMCAT_VERSION=9.0.43
+  - DOCKER_IMAGE_BASE=idealista/jdk:8u382-focal-temurin-jdk TOMCAT_VERSION=8.5.63
+  - DOCKER_IMAGE_BASE=idealista/jdk:8u382-focal-temurin-jdk TOMCAT_VERSION=7.0.108
+  - DOCKER_IMAGE_BASE=idealista/jdk:17.0.8-focal-temurin-jdk TOMCAT_VERSION=9.0.43
+  - DOCKER_IMAGE_BASE=idealista/jdk:17.0.8-focal-temurin-jdk TOMCAT_VERSION=8.5.63
+  - DOCKER_IMAGE_BASE=idealista/jdk:17.0.8-focal-temurin-jdk TOMCAT_VERSION=7.0.108
 script:
   - pipenv run molecule test
 

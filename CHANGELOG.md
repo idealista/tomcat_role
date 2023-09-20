@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/tomcat_role/tree/develop)
 
+## [1.10.4](https://github.com/idealista/tomcat_role/tree/1.10.4)
+[Full Changelog](https://github.com/idealista/tomcat_role/compare/1.10.3...1.10.4)
+### Fixed
+- *[#117](https://github.com/idealista/tomcat_role/issues/117) Agent jar installation not working correctly* @sorobon
+
 ## [1.10.3](https://github.com/idealista/tomcat_role/tree/1.10.3)
 [Full Changelog](https://github.com/idealista/tomcat_role/compare/1.10.2...1.10.3)
 ### Added

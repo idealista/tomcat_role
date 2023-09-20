@@ -22,6 +22,16 @@ tomcat_agents_config:
     catalina_opts:
       - '-javaagent:{{ tomcat_install_path }}/datadog/dd-java-agent-0.73.0.jar -Ddd.profiling.enabled=true -Ddd.logs.injection=true -Ddd.service=sample -Ddd.env=molecule'
     configuration_files: []
+  - name: "otel"
+    version: "1.30.0"
+    download_url: "https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/v1.30.0/opentelemetry-javaagent.jar"
+    catalina_opts:
+      - '-javaagent:{{ tomcat_install_path }}/otel/opentelemetry-javaagent.jar -Dotel.javaagent.configuration-file={{ tomcat_install_path }}/otel/otel.properties'
+    configuration_files:
+      - "otel.properties"
+    params: {
+      service_name: "application_sample_name"
+      }
 
 tomcat_logs_path: /var/log/tomcat
 

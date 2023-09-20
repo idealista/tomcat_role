@@ -94,7 +94,7 @@
     dest: "{{ tomcat_install_path }}/{{ item.name }}/{{ item.file }}"
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
-  when: agent_downloaded.changed
+  when: tomcat_agent_configuration is defined
   notify: restart tomcat
   with_items:
     - '{{ tomcat_agent_configuration }}'

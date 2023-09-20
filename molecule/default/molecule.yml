@@ -12,7 +12,7 @@ platforms:
   - name: tomcat
     groups:
       - tomcat
-    image: ${DOCKER_IMAGE_BASE:-idealista/jdk:8u252-stretch-openjdk-headless}
+    image: ${DOCKER_IMAGE_BASE:-idealista/jdk:8u382-bullseye-temurin-jdk}
     privileged: false
     command: '/lib/systemd/systemd'
     capabilities:

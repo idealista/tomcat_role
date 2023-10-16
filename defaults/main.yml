@@ -21,9 +21,17 @@ tomcat_bin_path: "{{ tomcat_install_path }}/bin"
 tomcat_conf_path: "{{ tomcat_install_path }}/conf"
 tomcat_webapps_path: "{{ tomcat_install_path }}/webapps"
 
+# Tomcat configuration files to deploy by role
+tomcat_conf_templates:
+  - { src: "tomcat-users.xml.j2", dest: "{{ tomcat_conf_path }}/tomcat-users.xml" }
+  - { src: "server.xml.j2", dest: "{{ tomcat_conf_path }}/server.xml" }
+  - { src: "setenv.sh.j2", dest: "{{ tomcat_bin_path }}/setenv.sh" }
+  - { src: "logging.properties.j2", dest: "{{ tomcat_conf_path }}/logging.properties" }
+
 # Allowing playbooks to provide external config files&templates
 tomcat_extra_conf_path: "{{ playbook_dir }}/files/tomcat/conf"
 tomcat_extra_conf_template_path: "{{ playbook_dir }}/templates/tomcat/conf"
+tomcat_extra_conf_files: "{{ lookup('filetree', '{{ tomcat_extra_conf_path }}/', '{{ tomcat_extra_conf_template_path }}/') | map(attribute='path') | list }}"
 
 ## Miscellaneous
 tomcat_force_reinstall: false

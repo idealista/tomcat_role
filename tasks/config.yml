@@ -9,16 +9,12 @@
 
 - name: Tomcat | Copy tomcat config
   template:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
+    src: "{{ tomcat_conf_templates | selectattr('src', 'equalto', item) | map(attribute='src') | first }}"
+    dest: "{{ tomcat_conf_templates | selectattr('src', 'equalto', item) | map(attribute='dest') | first }}"
     mode: 0640
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
-  with_items:
-    - { src: "tomcat-users.xml.j2", dest: "{{ tomcat_conf_path }}/tomcat-users.xml" }
-    - { src: "server.xml.j2", dest: "{{ tomcat_conf_path }}/server.xml" }
-    - { src: "setenv.sh.j2", dest: "{{ tomcat_bin_path }}/setenv.sh" }
-    - { src: "logging.properties.j2", dest: "{{ tomcat_conf_path }}/logging.properties" }
+  with_items: "{{ tomcat_conf_templates | map(attribute='src') | difference(tomcat_extra_conf_files) | list }}"
   notify: restart tomcat
 
 - name: Tomcat | Ensure extra tomcat config file and template paths exists

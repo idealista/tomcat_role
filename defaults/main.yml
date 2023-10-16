@@ -37,6 +37,7 @@ tomcat_http_connector_port: 8080
 tomcat_http_connector_connection_timeout: 20000
 
 tomcat_ajp_connector_port: 8009
+tomcat_ajp_connector_secret: changeme
 tomcat_connector_redirect_port: 8443
 
 ## CATALINA_OPTS

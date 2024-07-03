@@ -1,17 +1,20 @@
 [[source]]
-name = "pypi"
-url = "https://pypi.org/simple"
-verify_ssl = true
+url = "http://nexus.int.sys.idealista/repository/pypi-public/simple"
+verify_ssl = false
+name = "pip_conf_index_global"
+
+[packages]
+ansible = "==2.9.27"
+molecule = "==3.0.8"
+docker = "==7.0.0"
+jmespath = "==0.9.4"
+lxml = "==4.6.2"
+pyyaml = "==5.3.1"
+requests = "<2.32.0"
+ansible-lint = "==4.2.0"
 
 [dev-packages]
 
-[packages]
-ansible = "==2.9.14"
-molecule = "==3.0.4"
-docker = "==4.2.2"
-jmespath = "==0.9.4"
-lxml = "==4.6.2"
-ansible-lint = "==4.2.0"
-
 [requires]
-python_version = "3"
+python_version = "3.9"
+python_full_version = "3.9.18"

@@ -1,9 +1,9 @@
 # Molecule managed
 
 {% if item.registry is defined %}
-FROM --platform=linux/amd64 {{ item.registry.url }}/{{ item.image }}
+FROM --platform={{ item.platform | default('amd64') }} {{ item.registry.url }}/{{ item.image }}
 {% else %}
-FROM --platform=linux/amd64 {{ item.image }}
+FROM --platform={{ item.platform | default('amd64') }} {{ item.image }}
 {% endif %}
 
 {% if 'stretch' in item.image %}

@@ -10,19 +10,20 @@ lint: |
 
 platforms:
   - name: tomcat
+    platform: amd64
     groups:
       - tomcat
     image: ${DOCKER_IMAGE_BASE:-idealista/jdk:8u382-bullseye-temurin-jdk}
-    privileged: false
+    privileged: true
     command: '/lib/systemd/systemd'
     capabilities:
       - SYS_ADMIN
-    volumes:
-      - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
-    tmpfs:
-      - '/run'
-      - '/run/lock'
-      - '/tmp'
+    # volumes:
+    #   - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+    # tmpfs:
+    #   - '/run'
+    #   - '/run/lock'
+    #   - '/tmp'
 
 provisioner:
   name: ansible

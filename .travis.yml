@@ -1,10 +1,13 @@
 ---
-
+dist: focal
 language: python
-python: "3.7"
+python: "3.9"
 os: linux
 services:
   - docker
+before_install:
+  - echo '{"default-cgroupns-mode":"host"}' | sudo tee /etc/docker/daemon.json
+  - sudo systemctl restart docker
 install:
   - pip install pipenv
   - pipenv sync

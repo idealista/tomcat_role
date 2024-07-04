@@ -2,7 +2,17 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
+## Added
+- *[#125](https://github.com/idealista/tomcat_role/pull/125) (2024-01-17)- Add ".gitattributes" file for linguist detection.* @ygomezsaiz
+
+
 ## [Unreleased](https://github.com/idealista/tomcat_role/tree/develop)
+
+
+## [1.11.0](https://github.com/idealista/tomcat_role/tree/1.11.0)
+[Full Changelog](https://github.com/idealista/tomcat_role/compare/1.10.4...1.11.0)
+### Added
+- *[#126](https://github.com/idealista/tomcat_role/issues/126) Agent extensions support* @sorobon
 
 ## [1.10.4](https://github.com/idealista/tomcat_role/tree/1.10.4)
 [Full Changelog](https://github.com/idealista/tomcat_role/compare/1.10.3...1.10.4)

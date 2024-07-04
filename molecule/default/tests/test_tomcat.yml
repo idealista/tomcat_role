@@ -15,12 +15,13 @@ group:
   tomcat:
     exists: true
 
+
 port:
-  tcp:8080:
+  tcp6:8080:
     listening: true
-  tcp:8005:
+  tcp6:8005:
     listening: true
-  tcp:8009:
+  tcp6:8009:
     listening: true
 
 file:

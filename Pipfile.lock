@@ -11,7 +11,7 @@
         "sources": [
             {
                 "name": "pip_conf_index_global",
-                "url": "http://nexus.int.sys.idealista/repository/pypi-public/simple",
+                "url": "https://pypi.org/simple",
                 "verify_ssl": false
             }
         ]

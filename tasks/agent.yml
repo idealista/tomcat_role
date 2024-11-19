@@ -1,5 +1,4 @@
 ---
-
 - name: Tomcat | agent installation | Install required packages
   apt:
     pkg: "{{ tomcat_agents_required_libs }}"
@@ -13,7 +12,7 @@
     state: directory
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
-  with_items: '{{ tomcat_agents_config }}'
+  with_items: "{{ tomcat_agents_config }}"
 
 - name: Tomcat | agent installation | Check if agent is installed
   stat:
@@ -38,16 +37,16 @@
     url: "{{ item.download_url }}"
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
-    mode: '666'
+    mode: "666"
   register: agent_downloaded
   loop: "{{ tomcat_agents_config|flatten(levels=1) }}"
   loop_control:
     index_var: index
   when: >
-   item.download_url | basename | splitext | last in tomcat_supported_agents_extensions and
-    (tomcat_agents_force_reinstall or not
-    agent_file_exists.results[index].stat.exists or
-    item.version != agent_version_checked.results[index].stdout)
+    item.download_url | basename | splitext | last in tomcat_supported_agents_extensions and
+     (tomcat_agents_force_reinstall or not
+     agent_file_exists.results[index].stat.exists or
+     item.version != agent_version_checked.results[index].stdout)
 
 - name: Tomcat | agent installation | Unarchive package
   unarchive:
@@ -58,7 +57,7 @@
     group: "{{ tomcat_group }}"
     mode: 0755
   when: item.changed and item.url | basename | splitext | last in tomcat_supported_agents_extensions
-  with_items: '{{ agent_downloaded.results }}'
+  with_items: "{{ agent_downloaded.results }}"
   tags:
     - skip_ansible_lint
 
@@ -68,7 +67,7 @@
     url: "{{ item.download_url }}"
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
-  loop: '{{ tomcat_agents_config | flatten(levels=1) }}'
+  loop: "{{ tomcat_agents_config | flatten(levels=1) }}"
   register: agent_jar_downloaded
   when: item.download_url | basename | splitext | last not in tomcat_supported_agents_extensions
 
@@ -79,7 +78,7 @@
     owner: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
     mode: 0644
-  with_items: '{{ tomcat_agents_config }}'
+  with_items: "{{ tomcat_agents_config }}"
 
 - name: Tomcat | agent installation | Check configuration files
   set_fact:
@@ -97,7 +96,7 @@
   when: tomcat_agent_configuration is defined
   notify: restart tomcat
   with_items:
-    - '{{ tomcat_agent_configuration }}'
+    - "{{ tomcat_agent_configuration }}"
 
 - name: Tomcat | agent installation | Check catalina options
   set_fact:
@@ -117,12 +116,21 @@
     - { src: "setagentenv.sh.j2", dest: "{{ tomcat_bin_path }}/setagentenv.sh" }
   notify: restart tomcat
 
-
 - name: Tomcat | agent installation | Setting extensions var
   set_fact:
     tomcat_agent_configuration_extensions_config: "{{ tomcat_agent_configuration_extensions_config|default([]) + [ {'name': item.name, 'files': item.extensions.files, 'path': item.extensions.path}] }}"
   loop: "{{ tomcat_agents_config }}"
   when: item.extensions.files is defined
+
+- name: Tomcat | agent installation | Clean up extensions path
+  file:
+    path: "{{ item.path }}"
+    state: absent
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+  loop: "{{ tomcat_agent_configuration_extensions_config }}"
+  when: tomcat_agent_configuration_extensions_config is defined
+  changed_when: false
 
 - name: Tomcat | agent installation | Ensure extensions path
   file:
@@ -132,6 +140,7 @@
     group: "{{ tomcat_group }}"
   loop: "{{ tomcat_agent_configuration_extensions_config }}"
   when: tomcat_agent_configuration_extensions_config is defined
+  changed_when: false
 
 - name: Tomcat | agent installation | Download extensions
   get_url:
@@ -143,6 +152,7 @@
     - "{{ tomcat_agent_configuration_extensions_config }}"
     - files
   when: tomcat_agent_configuration_extensions_config is defined
+  changed_when: false
 
 - name: Tomcat | agent installation | Setting extensions var for templates
   set_fact:
@@ -169,3 +179,4 @@
     - "{{ tomcat_agents_templates_extensions_config }}"
     - templates
   when: tomcat_agents_templates_extensions_config is defined
+  changed_when: false

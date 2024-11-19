@@ -7,7 +7,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 
 ## [Unreleased](https://github.com/idealista/tomcat_role/tree/develop)
-
+### Fixed
+- *[#129](https://github.com/idealista/tomcat_role/issues/129) Agent extensions cleanup* @sorobon
 
 ## [1.11.0](https://github.com/idealista/tomcat_role/tree/1.11.0)
 [Full Changelog](https://github.com/idealista/tomcat_role/compare/1.10.4...1.11.0)

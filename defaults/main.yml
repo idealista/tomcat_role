@@ -44,6 +44,7 @@ tomcat_connector_redirect_port: 8443
 tomcat_catalina_opts:
   - -Xms512m
   - -Xmx512m
+  - -Dlog4j2.formatMsgNoLookups=true
 
 tomcat_environment_vars:
   - name: UMASK
@@ -123,6 +124,13 @@ tomcat_agents_force_reinstall: false
 #       - '-javaagent:{{ tomcat_install_path }}/agent_name/agent_file'
 #     configuration_files:
 #       - "configuration_file.yml"
+#     extensions:
+#       path: "{{ spring_boot_application_path }}/agent_name/extensions"
+#       files:
+#         - "ur1"
+#         - "url2"
+#      templates:
+#         - "deploy/agents/agent_name/extensions/extension-example.xml"
 #     params: {
 #       application_name: "application_name",
 #       license_key: "license_key"

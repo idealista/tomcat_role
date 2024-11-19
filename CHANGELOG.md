@@ -2,7 +2,34 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
+## Added
+- *[#125](https://github.com/idealista/tomcat_role/pull/125) (2024-01-17)- Add ".gitattributes" file for linguist detection.* @ygomezsaiz
+
+
 ## [Unreleased](https://github.com/idealista/tomcat_role/tree/develop)
+
+
+## [1.11.0](https://github.com/idealista/tomcat_role/tree/1.11.0)
+[Full Changelog](https://github.com/idealista/tomcat_role/compare/1.10.4...1.11.0)
+### Added
+- *[#126](https://github.com/idealista/tomcat_role/issues/126) Agent extensions support* @sorobon
+
+## [1.10.4](https://github.com/idealista/tomcat_role/tree/1.10.4)
+[Full Changelog](https://github.com/idealista/tomcat_role/compare/1.10.3...1.10.4)
+### Fixed
+- *[#117](https://github.com/idealista/tomcat_role/issues/117) Agent jar installation not working correctly* @sorobon
+
+## [1.10.3](https://github.com/idealista/tomcat_role/tree/1.10.3)
+[Full Changelog](https://github.com/idealista/tomcat_role/compare/1.10.2...1.10.3)
+### Added
+- *[#114](https://github.com/idealista/tomcat_role/issues/114) Hide Tomcat version on error pages* @aren-pulid0
+
+## [1.10.2](https://github.com/idealista/tomcat_role/tree/1.10.2)
+[Full Changelog](https://github.com/idealista/tomcat_role/compare/1.10.1...1.10.2)
+### Added
+- *[#111](https://github.com/idealista/tomcat_role/issues/111) Set log4j formatMsgNoLookups flag by default* @blalop
+### Fixed
+- *[#109](https://github.com/idealista/tomcat_role/issues/109) Agents installation logic fix* @blalop
 
 ## [1.10.1](https://github.com/idealista/tomcat_role/tree/1.10.1)
 [Full Changelog](https://github.com/idealista/tomcat_role/compare/1.10.0...1.10.1)

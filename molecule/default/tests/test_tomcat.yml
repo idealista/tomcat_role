@@ -15,12 +15,13 @@ group:
   tomcat:
     exists: true
 
+
 port:
-  tcp:8080:
+  tcp6:8080:
     listening: true
-  tcp:8005:
+  tcp6:8005:
     listening: true
-  tcp:8009:
+  tcp6:8009:
     listening: true
 
 file:
@@ -35,12 +36,16 @@ file:
     exists: true
     contains:
       - '-javaagent:/opt/tomcat/newrelic/newrelic.jar'
+      - '-javaagent:/opt/tomcat/datadog/dd-java-agent-0.73.0.jar -Ddd.profiling.enabled=true -Ddd.logs.injection=true -Ddd.service=sample -Ddd.env=molecule'
+      - '-javaagent:/opt/tomcat/otel/opentelemetry-javaagent.jar -Dotel.javaagent.configuration-file=/opt/tomcat/otel/otel.properties'
   /opt/tomcat/datadog/dd-java-agent-0.73.0.jar:
     exists: true
-  /opt/tomcat/bin/setagentenv.sh:
+  /opt/tomcat/bin/setenv.sh:
     exists: true
     contains:
-      - '-javaagent:/opt/tomcat/datadog/dd-java-agent-0.73.0.jar -Ddd.profiling.enabled=true -Ddd.logs.injection=true -Ddd.service=sample -Ddd.env=molecule'
+      - 'export CATALINA_OPTS="$CATALINA_OPTS -Xms512m"'
+      - 'export CATALINA_OPTS="$CATALINA_OPTS -Xmx512m"'
+      - 'export CATALINA_OPTS="$CATALINA_OPTS -Dlog4j2.formatMsgNoLookups=true"'
   /var/log/tomcat:
     filetype: directory
     exists: true
@@ -66,6 +71,18 @@ file:
     exists: true
   /opt/tomcat/webapps/hello-servlet.war:
     exists: true
+  /opt/tomcat/newrelic/extensions/c3p0-0.9.jar:
+    exists: true
+    owner: tomcat
+    group: tomcat
+  /opt/tomcat/newrelic/extensions/hikaricp-2.4.0.jar:
+    exists: true
+    owner: tomcat
+    group: tomcat
+  /opt/tomcat/newrelic/extensions/extension-example.xml:
+    exists: true
+    owner: tomcat
+    group: tomcat
 
 command:
   java -cp /opt/tomcat/lib/catalina.jar org.apache.catalina.util.ServerInfo | grep 'Server version':

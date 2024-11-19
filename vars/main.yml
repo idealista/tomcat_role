@@ -9,3 +9,5 @@ tomcat_supported_agents_extensions:
   - '.tar.gz'
   - '.tar.bz2'
   - '.tar.xz'
+
+tomcat_show_server_info_on_error_page: false

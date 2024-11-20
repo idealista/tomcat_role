@@ -9,6 +9,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 ## [Unreleased](https://github.com/idealista/tomcat_role/tree/develop)
 ### Fixed
 - *[#129](https://github.com/idealista/tomcat_role/issues/129) Agent extensions cleanup* @sorobon
+### Added
+- *[#108](https://github.com/idealista/tomcat_role/issues/108) Apache Tomcat 8.5.51 adds a secret required attribute to the AJP Connector #108* @sm97
+- *[#107](https://github.com/idealista/tomcat_role/issues/107) Allow to override configuration files deployed by role* @sm97
+- *[#106](https://github.com/idealista/tomcat_role/issues/106) Add extra jar files download* @sm97
+
 
 ## [1.11.0](https://github.com/idealista/tomcat_role/tree/1.11.0)
 [Full Changelog](https://github.com/idealista/tomcat_role/compare/1.10.4...1.11.0)

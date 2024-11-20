@@ -118,19 +118,9 @@
 
 - name: Tomcat | agent installation | Setting extensions var
   set_fact:
-    tomcat_agent_configuration_extensions_config: "{{ tomcat_agent_configuration_extensions_config|default([]) + [ {'name': item.name, 'files': item.extensions.files, 'path': item.extensions.path}] }}"
+    tomcat_agent_configuration_extensions_config: "{{ tomcat_agent_configuration_extensions_config|default([]) + [ {'name': item.name, 'files': item.extensions.files|default([]), 'path': item.extensions.path}] }}"
   loop: "{{ tomcat_agents_config }}"
-  when: item.extensions.files is defined
-
-- name: Tomcat | agent installation | Clean up extensions path
-  file:
-    path: "{{ item.path }}"
-    state: absent
-    owner: "{{ tomcat_user }}"
-    group: "{{ tomcat_group }}"
-  loop: "{{ tomcat_agent_configuration_extensions_config }}"
-  when: tomcat_agent_configuration_extensions_config is defined
-  changed_when: false
+  when: item.extensions is defined
 
 - name: Tomcat | agent installation | Ensure extensions path
   file:
@@ -141,6 +131,39 @@
   loop: "{{ tomcat_agent_configuration_extensions_config }}"
   when: tomcat_agent_configuration_extensions_config is defined
   changed_when: false
+
+- name: Tomcat | agent installation | List existent extensions
+  find:
+    paths: "{{ item.extensions.path }}"
+    patterns: "*.jar"
+  loop: "{{ tomcat_agents_config }}"
+  when: item.extensions is defined
+  register: tomcat_agents_existent_extensions
+
+- name: Tomcat | agent installation | Setting extensions var for removing
+  set_fact:
+    tomcat_agents_existent_extensions_list: "{{ tomcat_agents_existent_extensions_list|default([]) + item.files | map(attribute='path') | list }}"
+  loop: "{{ tomcat_agents_existent_extensions.results }}"
+  when: item.files is defined
+
+- name: Tomcat | agent installation | Extract files paths from configuration
+  set_fact:
+    config_files: "{{ config_files|default([]) + [item.0.path ~ '/' ~ item.1 | basename] }}"
+  with_subelements:
+    - "{{ tomcat_agent_configuration_extensions_config }}"
+    - files
+  when: tomcat_agent_configuration_extensions_config is defined
+
+- name: Tomcat | agent installation | Calculate difference
+  set_fact:
+    files_to_remove: "{{ tomcat_agents_existent_extensions_list | difference(config_files) }}"
+
+- name: Tomcat | agent installation | Remove old extensions
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop: "{{ files_to_remove }}"
+  when: files_to_remove is defined
 
 - name: Tomcat | agent installation | Download extensions
   get_url:

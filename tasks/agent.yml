@@ -140,11 +140,19 @@
   when: item.extensions is defined
   register: tomcat_agents_existent_extensions
 
+- name: Tomcat | agent installation | Setting empty var for extensions to remove
+  set_fact:
+    tomcat_agents_existent_extensions_list: []
+
 - name: Tomcat | agent installation | Setting extensions var for removing
   set_fact:
     tomcat_agents_existent_extensions_list: "{{ tomcat_agents_existent_extensions_list|default([]) + item.files | map(attribute='path') | list }}"
   loop: "{{ tomcat_agents_existent_extensions.results }}"
   when: item.files is defined
+
+- name: Tomcat | agent installation | Setting empty var for extract files paths from configuration
+  set_fact:
+    config_files: []
 
 - name: Tomcat | agent installation | Extract files paths from configuration
   set_fact:

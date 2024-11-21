@@ -3,7 +3,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/tomcat_role/tree/develop)
-
+## [1.12.10](https://github.com/idealista/tomcat_role/tree/1.12.1)
+[Full Changelog](https://github.com/idealista/tomcat_role/compare/1.12.0...1.12.1)
+### Fixed
+- *[#129](https://github.com/idealista/tomcat_role/issues/129) Agent extensions cleanup* @sorobon
+- 
 ## [1.12.0](https://github.com/idealista/tomcat_role/tree/1.12.0)
 [Full Changelog](https://github.com/idealista/tomcat_role/compare/1.11.0...1.12.0)
 ### Fixed
